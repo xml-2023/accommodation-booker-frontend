@@ -1,0 +1,78 @@
+<div class="form">
+    <div class="subtitle">Create accommodation</div>
+    <form [formGroup]="accommodationForm">
+    <div class="ic2">
+        <div class="input-container ">
+            <input type="name" class="input" id="name" formControlName="name" [ngClass]="{'is-invalid': accommodationForm.controls['name'].errors}">
+            <div *ngIf="accommodationForm.controls['name'].touched && !accommodationForm.controls['name'].valid" class="text-danger"> This field is required! </div>          
+            <!-- <div class="cut"></div> -->
+            <label for="name" class="placeholder-date1">Name</label>     
+        </div>
+        <div class="input-container icr">
+            <input type="text" class="input" id="description" formControlName="description" [ngClass]="{'is-invalid': accommodationForm.controls['description'].errors}">
+            <div *ngIf="accommodationForm.controls['description'].touched && !accommodationForm.controls['description'].valid" class="text-danger"> This field is required! </div>         
+            <!-- <div class="cut"></div> -->
+            <label for="description" class="placeholder-date">Description</label>
+        </div>
+    </div>
+    
+<div class="ic2">
+    <div class="input-container ">
+        <input type="number" class="input" id="minGuests" formControlName="minGuests" [ngClass]="{'is-invalid': accommodationForm.controls['minGuests'].errors}">
+        <div *ngIf="accommodationForm.controls['minGuests'].touched && !accommodationForm.controls['minGuests'].valid" class="text-danger"> This field is required! </div>          
+        <!-- <div class="cut"></div> -->
+        <label for="minGuests" class="placeholder-date">Minimal guest number</label>
+    </div>
+    <div class="input-container icr">
+        <input type="number" class="input" id="maxGuests" formControlName="maxGuests" [ngClass]="{'is-invalid': accommodationForm.controls['maxGuests'].errors}">
+        <div *ngIf="accommodationForm.controls['maxGuests'].touched && !accommodationForm.controls['maxGuests'].valid" class="text-danger"> This field is required! </div>          
+        <!-- <div class="cut"></div> -->
+        <label for="maxGuests" class="placeholder-date">Maximum guest number</label>
+    </div>
+</div>
+<div class="ic2">
+    <div class="input-container">
+        <input type="text" class="input" id="country" formControlName="country" [ngClass]="{'is-invalid': accommodationForm.controls['country'].errors}">
+        <div *ngIf="accommodationForm.controls['country'].touched && !accommodationForm.controls['country'].valid" class="text-danger"> This field is required! </div>          
+        <!-- <div class="cut"></div> -->
+        <label for="country" class="placeholder-date">Country</label>
+    </div>
+    <div class="input-container icr">
+        <input type="text" class="input" id="city" formControlName="city" [ngClass]="{'is-invalid': accommodationForm.controls['city'].errors}">
+        <div *ngIf="accommodationForm.controls['city'].touched && !accommodationForm.controls['city'].valid" class="text-danger"> This field is required!  </div>          
+        <!-- <div class="cut"></div> -->
+        <label for="city" class="placeholder-date">City</label>
+    </div>
+</div>
+<div class="ic2">
+    <div class="input-container">
+        <input type="text" class="input" id="street" formControlName="street" [ngClass]="{'is-invalid': accommodationForm.controls['street'].errors}">
+        <div *ngIf="accommodationForm.controls['street'].touched && !accommodationForm.controls['street'].valid" class="text-danger"> This field is required!  </div>          
+        <!-- <div class="cut"></div> -->
+        <label for="street" class="placeholder-date">Street</label>
+    </div>
+    <div class="input-container icr">
+        <input type="text" class="input" id="number" formControlName="number" [ngClass]="{'is-invalid': accommodationForm.controls['number'].errors}">
+        <div *ngIf="accommodationForm.controls['number'].touched && !accommodationForm.controls['number'].valid" class="text-danger"> This field is required!  </div>          
+        <!-- <div class="cut"></div> -->
+        <label for="number" class="placeholder-date">Number</label>
+    </div>
+</div>
+<div class="ic2">
+    <div class="input-container">
+        <select [ngStyle]="{ 'background-color': '#5E6A86'}" name="priceType" id="priceType" formControlName="priceType" class="input">
+            <option>PER_PERSON</option>
+            <option>PER_ACCOMMODATION_UNIT</option>
+        </select>
+        <label for="priceType" class="placeholder-date">Price type</label>
+    </div>
+    <div class="input-container icr">
+        <input type="checkbox" class="checkbox" id="isAutomaticConfirmation" formControlName="isAutomaticConfirmation" [ngClass]="{'is-invalid': accommodationForm.controls['isAutomaticConfirmation'].errors}">
+        <div *ngIf="accommodationForm.controls['isAutomaticConfirmation'].touched && !accommodationForm.controls['isAutomaticConfirmation'].valid" class="text-danger"> This field is required!  </div>          
+        <!-- <div class="cut"></div> -->
+        <label for="isAutomaticConfirmation" class="placeholder-confirmation">Is automatic confirmation?</label>
+    </div>
+</div>
+    <button type="text" class="submit" (click)="createAccommodation()" [disabled]="!accommodationForm.valid">Create</button>
+</form>
+  </div>
