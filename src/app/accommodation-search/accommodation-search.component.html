@@ -1,1 +1,84 @@
-<p>accommodation-search works!</p>
+<div class="card">
+    <form class="form" [formGroup]="formGroup">
+        <span class="title">Search for a accommodation</span>
+            <div>
+                <select [ngStyle]="{ 'background-color': '#5E6A86'}" name="location" id="location" formControlName="location" class="combobox">
+                    <option value="" disabled selected hidden>Location</option>
+                    <option [value]="place" *ngFor="let place of allPlaces">{{place}}</option>
+                </select>
+                <input required placeholder="Start date" type="text" name="startDate" id="startDate" class="input-date" formControlName="startDate" onmouseenter="(this.type='startDate')">
+                <input required placeholder="End date" type="text" name="endDate" id="endDate" class="input-date" formControlName="endDate" onmouseenter="(this.type='endDate')">
+                <input required placeholder="Number of guests" type="number" name="numOfGuests" id="numOfGuests" class="input-number" formControlName="numOfGuests" min="1">
+                <button class="submit-button" type="submit" (click)="search()" [disabled]="!formGroup.valid">Search</button>
+            </div>
+    </form>
+</div>
+
+<div class="not-found" *ngIf="hasFoundAccommodation == true">
+   <b>No accommodation were found!</b> 
+</div>
+
+<!-- <div class="flight-list-card">
+    <div class="flight-card" *ngFor="let accommodation of accommodations">
+        <div class="flight-card--header">
+        <div class="flight-card--header-details">
+            <div class="details-passenger">
+            <span class="detail--title">
+                Total price
+            </span>
+            <span class="detail--price">
+                {{flight.tickets[0].price * selectedNum}}e
+            </span>
+            </div>
+            <div class="details-depart">
+            <span class="detail--title">
+                Departs
+            </span>
+            <span class="detail--text">
+                {{flight.date | date}}
+            </span>
+            </div>
+        </div>
+        </div>
+        <div class="flight-card--details">
+        <div class="bc-from">
+            <span class="detail-time">
+                {{flight.timeOfDeparture[0]}}:{{flight.timeOfDeparture[1]}}
+            </span>
+            <span class="detail-city">
+                {{flight.placeOfDeparture}}
+            </span>
+        </div>
+        <div class="bc-plane">
+            <img src="https://cdn.onlinewebfonts.com/svg/img_537856.svg" />
+        </div>
+        <div class="bc-to">
+            <span class="detail-time">
+                {{flight.timeOfArrival[0]}}:{{flight.timeOfArrival[1]}}
+            </span>
+            <span class="detail-city">
+                {{flight.placeOfArrival}}
+            </span>
+        </div>
+        <div class="flight-card-details--text">
+            <div class="text-left">
+            <span class="text-hline">
+                Per person
+            </span>
+            <span class="text-actual">
+                {{flight.tickets[0].price}}e
+            </span>
+            </div>
+            <div class="text-right">
+            <span class="text-hline">
+                Book a flight
+            </span>
+            <span class="text-actual mint">
+                <button class="book-button">Buy</button>
+            </span>
+            </div>
+        </div>
+        </div>
+    </div>
+</div> -->
+  
