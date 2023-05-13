@@ -74,6 +74,19 @@
         <label for="isAutomaticConfirmation" class="placeholder-confirmation">Is automatic confirmation?</label>
     </div>
 </div>
+<div class="ic2">
+    <div> 
+        <label for="images" class="placeholder-confirmation">Images</label>
+            <input
+              type="file"
+              id="images"
+              (change)="onFileSelect($event)"
+              multiple
+              accept="image/*"
+              required
+            /> 
+    </div>
+</div>
     <button type="text" class="submit" (click)="createAccommodation()" [disabled]="!accommodationForm.valid">Create</button>
 </form>
   </div>

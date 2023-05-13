@@ -15,6 +15,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { ImageUploadComponent } from './image-upload/image-upload.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { MatButtonModule } from '@angular/material/button';
     AppComponent,
     AccommodationCreateComponent,
     AccommodationSearchComponent,
-    HostSidebarComponent
+    HostSidebarComponent,
+    ImageUploadComponent
   ],
   imports: [
     BrowserModule,
