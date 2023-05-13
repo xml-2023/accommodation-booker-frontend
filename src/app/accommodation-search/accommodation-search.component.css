@@ -168,7 +168,7 @@ body {
 
 .flight-card {
   width: 500px;
-  height: 380px;
+  height: 450px;
   border-radius: 35px;
   margin: 1.5rem;
   overflow: hidden;
@@ -177,7 +177,7 @@ body {
 
 .flight-card--header {
   width: 100%;
-  height: 140px;
+  height: 180px;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#264b76+0,002c5f+100 */
   background: #023075;
   padding: 10px 55px;
@@ -257,6 +257,12 @@ body {
   font-size: 15px;
   display: block;
   /* font-weight: 100; */
+}
+
+.detail-name{
+  color: #002C5F;
+  font-size: 25px;
+  display: block;
 }
 
 .detail-city {

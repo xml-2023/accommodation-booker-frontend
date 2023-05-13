@@ -1,3 +1,4 @@
+<app-host-sidebar></app-host-sidebar>
 <div class="card">
     <form class="form" [formGroup]="formGroup">
         <span class="title">Search for a accommodation</span>
@@ -6,8 +7,8 @@
                     <option value="" disabled selected hidden>Location</option>
                     <option [value]="place" *ngFor="let place of allPlaces">{{place}}</option>
                 </select>
-                <input required placeholder="Start date" type="text" name="startDate" id="startDate" class="input-date" formControlName="startDate" onmouseenter="(this.type='startDate')">
-                <input required placeholder="End date" type="text" name="endDate" id="endDate" class="input-date" formControlName="endDate" onmouseenter="(this.type='endDate')">
+                <input required placeholder="Start date" type="date" name="startDate" id="startDate" class="input-date" formControlName="startDate" >
+                <input required placeholder="End date" type="date" name="endDate" id="endDate" class="input-date" formControlName="endDate">
                 <input required placeholder="Number of guests" type="number" name="numOfGuests" id="numOfGuests" class="input-number" formControlName="numOfGuests" min="1">
                 <button class="submit-button" type="submit" (click)="search()" [disabled]="!formGroup.valid">Search</button>
             </div>
@@ -18,7 +19,7 @@
    <b>No accommodation were found!</b> 
 </div>
 
-<!-- <div class="flight-list-card">
+<div class="flight-list-card">
     <div class="flight-card" *ngFor="let accommodation of accommodations">
         <div class="flight-card--header">
         <div class="flight-card--header-details">
@@ -27,58 +28,71 @@
                 Total price
             </span>
             <span class="detail--price">
-                {{flight.tickets[0].price * selectedNum}}e
+                {{accommodation.totalPrice}}e
             </span>
             </div>
             <div class="details-depart">
             <span class="detail--title">
-                Departs
+                Start date
             </span>
             <span class="detail--text">
-                {{flight.date | date}}
+                {{accommodation.startDate | date}}
+            </span>
+           
+            <span class="detail--title">
+                End date
+            </span>
+            <span class="detail--text">
+                {{accommodation.endDate | date}}
             </span>
             </div>
         </div>
         </div>
         <div class="flight-card--details">
         <div class="bc-from">
-            <span class="detail-time">
-                {{flight.timeOfDeparture[0]}}:{{flight.timeOfDeparture[1]}}
+            <span class="detail-name">
+                {{accommodation.name}}
             </span>
             <span class="detail-city">
-                {{flight.placeOfDeparture}}
+                {{accommodation.street}} {{accommodation.number}}
+            </span>
+            <span class="detail-city">
+                {{accommodation.city}}, {{accommodation.country}}
             </span>
         </div>
-        <div class="bc-plane">
+        <!-- <div class="bc-plane">
             <img src="https://cdn.onlinewebfonts.com/svg/img_537856.svg" />
-        </div>
+        </div> -->
         <div class="bc-to">
             <span class="detail-time">
-                {{flight.timeOfArrival[0]}}:{{flight.timeOfArrival[1]}}
+                Min guests: {{accommodation.minGuests}}
+            </span>
+            <span class="detail-time">
+                Max guests: {{accommodation.maxGuests}}
             </span>
             <span class="detail-city">
-                {{flight.placeOfArrival}}
+                Description: {{accommodation.description}}
             </span>
         </div>
         <div class="flight-card-details--text">
             <div class="text-left">
             <span class="text-hline">
-                Per person
+                Unit price
             </span>
             <span class="text-actual">
-                {{flight.tickets[0].price}}e
+                {{accommodation.unitPrice}}e
             </span>
             </div>
             <div class="text-right">
-            <span class="text-hline">
-                Book a flight
-            </span>
+            <!-- <span class="text-hline">
+                Reserve an accommmodation
+            </span> -->
             <span class="text-actual mint">
-                <button class="book-button">Buy</button>
+                <button class="book-button">Reserve</button>
             </span>
             </div>
         </div>
         </div>
     </div>
-</div> -->
+</div>
   
