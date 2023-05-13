@@ -1,0 +1,84 @@
+<app-host-sidebar></app-host-sidebar>
+<div>
+    <h1 class="h1"><b class="title">All accommodations</b></h1>
+</div>
+<div class="flight-list-card">
+    <div class="flight-card" *ngFor="let accommodation of allAccommodations">
+        <div class="flight-card--header">
+        <div class="flight-card--header-details">
+            <div class="details-passenger">
+            <span class="detail--title">
+                Name
+            </span>
+            <span class="detail-text">
+                {{accommodation.name}}
+            </span>
+            </div>
+            <div class="details-depart">
+            <!-- <span class="detail--title">
+                Start date
+            </span>
+            <span class="detail--text">
+                {{accommodation.startDate | date}}
+            </span>
+           
+            <span class="detail--title">
+                End date
+            </span>
+            <span class="detail--text">
+                {{accommodation.endDate | date}}
+            </span> -->
+            </div>
+        </div>
+        </div>
+        <div class="flight-card--details">
+        <div class="bc-from">
+            <span class="detail-name">
+                Address:
+            </span>
+           
+            <div class="detail-city">
+                {{accommodation.street}} {{accommodation.number}}
+            </div>
+            <div class="detail-city">
+                {{accommodation.city}}, {{accommodation.country}}
+            </div>
+        </div>
+        <!-- <div class="bc-plane">
+            <img src="https://cdn.onlinewebfonts.com/svg/img_537856.svg" />
+        </div> -->
+        <div class="bc-to">
+            <span class="detail-time">
+                Min guests: {{accommodation.minGuests}}
+            </span>
+            <span class="detail-time">
+                Max guests: {{accommodation.maxGuests}}
+            </span>
+            <span class="detail-city">
+                Description: {{accommodation.description}}
+            </span>
+        </div>
+        <div class="flight-card-details--text">
+            <div class="text-left">
+            <!--<span class="text-hline">
+                Unit price
+            </span>
+             <span class="text-actual">
+                {{accommodation.unitPrice}}e
+            </span> -->
+            <span class="text-actual mint">
+                <button class="book-button" (click)="viewAvailability(accommodation.id)">View availability</button>
+            </span>
+            </div>
+            <div class="text-right">
+            <!-- <span class="text-hline">
+                Reserve an accommmodation
+            </span> -->
+            <span class="text-actual mint">
+                <button class="book-button" (click)="createAvailability(accommodation.id)">Create new availability</button>
+            </span>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

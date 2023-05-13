@@ -16,6 +16,9 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { ImageUploadComponent } from './image-upload/image-upload.component';
+import { AccommodationsOfHostComponent } from './accommodations-of-host/accommodations-of-host.component';
+import { CreateAvailabilityComponent } from './create-availability/create-availability.component';
+import { AvailabilityListByAccommodationComponent } from './availability-list-by-accommodation/availability-list-by-accommodation.component';
 
 
 @NgModule({
@@ -24,7 +27,10 @@ import { ImageUploadComponent } from './image-upload/image-upload.component';
     AccommodationCreateComponent,
     AccommodationSearchComponent,
     HostSidebarComponent,
-    ImageUploadComponent
+    ImageUploadComponent,
+    AccommodationsOfHostComponent,
+    CreateAvailabilityComponent,
+    AvailabilityListByAccommodationComponent
   ],
   imports: [
     BrowserModule,
