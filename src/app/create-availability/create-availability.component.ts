@@ -49,8 +49,6 @@ export class CreateAvailabilityComponent implements OnInit {
         console.error(error);
       }
     });
-    
-   
   }  
 
 }

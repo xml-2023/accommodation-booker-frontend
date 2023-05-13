@@ -19,6 +19,7 @@ import { ImageUploadComponent } from './image-upload/image-upload.component';
 import { AccommodationsOfHostComponent } from './accommodations-of-host/accommodations-of-host.component';
 import { CreateAvailabilityComponent } from './create-availability/create-availability.component';
 import { AvailabilityListByAccommodationComponent } from './availability-list-by-accommodation/availability-list-by-accommodation.component';
+import { EditAvailabilityComponent } from './edit-availability/edit-availability.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { AvailabilityListByAccommodationComponent } from './availability-list-by
     ImageUploadComponent,
     AccommodationsOfHostComponent,
     CreateAvailabilityComponent,
-    AvailabilityListByAccommodationComponent
+    AvailabilityListByAccommodationComponent,
+    EditAvailabilityComponent
   ],
   imports: [
     BrowserModule,

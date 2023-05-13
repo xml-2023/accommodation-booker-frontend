@@ -7,6 +7,7 @@ import { ImageUploadComponent } from './image-upload/image-upload.component';
 import { AccommodationsOfHostComponent } from './accommodations-of-host/accommodations-of-host.component';
 import { CreateAvailabilityComponent } from './create-availability/create-availability.component';
 import { AvailabilityListByAccommodationComponent } from './availability-list-by-accommodation/availability-list-by-accommodation.component';
+import { EditAvailabilityComponent } from './edit-availability/edit-availability.component';
 
 const routes: Routes = [
   { path: 'host', component: HostSidebarComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'image-upload', component: ImageUploadComponent},
   { path: 'my-accommodations', component: AccommodationsOfHostComponent},
   { path: 'create-availability/:id', component: CreateAvailabilityComponent},
-  { path: 'view-availability/:id', component: AvailabilityListByAccommodationComponent}
+  { path: 'view-availability/:id', component: AvailabilityListByAccommodationComponent},
+  { path: 'edit-availability/:accId/:avaId', component: EditAvailabilityComponent}
 
 ];
 

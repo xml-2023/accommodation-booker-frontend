@@ -24,13 +24,15 @@ export class AvailabilityListByAccommodationComponent implements OnInit {
     console.log(this.accommodationId)
     this.accommodationService.findById(this.accommodationId).subscribe(res => {
       this.accommodation = res
-      console.log(res)
-      console.log("AAAAAAAAAAAAAAAa")
-      console.log(res.availableSlots)
       this.allAvailability = res.availableSlots
-      console.log(this.allAvailability)
     })
 
   }
+
+  editAvailability(availabilityId : number) : void {
+    console.log('edit-availability', this.accommodationId, '/',availabilityId)
+    this.router.navigate(['edit-availability', this.accommodationId, availabilityId]);
+  }
+
 
 }
