@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AccommodationService } from '../service/accommodation.service';
+import { SearchAccommodation } from '../model/search-accommodation.model';
 
 @Component({
   selector: 'app-accommodation-search',
@@ -19,7 +20,7 @@ export class AccommodationSearchComponent implements OnInit{
 
   ngOnInit(): void {
     this.accommodationService.findAll().subscribe(res => {
-      this.allAccommodations = res.payload.ArrayList
+      this.allAccommodations = res
       console.log(this.allAccommodations)
       this.getAllPlaces(this.allAccommodations)
       console.log(this.allPlaces)
@@ -37,7 +38,7 @@ export class AccommodationSearchComponent implements OnInit{
     this.selectedNum = this.formGroup.value.numOfGuests
     this.accommodationService.searchAccommodation(this.formGroup.value.location, this.formGroup.value.numOfGuests, this.formGroup.value.startDate, this.formGroup.value.endDate)
       .subscribe(res => {
-        this.accommodations = res.payload.ArrayList
+        this.accommodations = res
         if(this.accommodations.length == 0){
           this.hasFoundAccommodation = true
         } else {
@@ -49,8 +50,11 @@ export class AccommodationSearchComponent implements OnInit{
 
   public getAllPlaces(allAccommodations : any){
     for(let accommodation of allAccommodations){
-      if(!this.allPlaces.includes(accommodation.location)){
-        this.allPlaces.push(accommodation.location)
+      if(!this.allPlaces.includes(accommodation.country)){
+        this.allPlaces.push(accommodation.country)
+      }
+      if(!this.allPlaces.includes(accommodation.city)){
+        this.allPlaces.push(accommodation.city)
       }
     }
   }

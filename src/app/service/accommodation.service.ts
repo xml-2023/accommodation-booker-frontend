@@ -22,7 +22,7 @@ export class AccommodationService {
   }
 
   findAll(): Observable<any>{
-    return this.http.get<any>(this.apiHost + 'flights/findAll', {headers: this.headers})
+    return this.http.get<any>(this.apiHost + 'accommodation/findAll', {headers: this.headers})
   }
 
 }
