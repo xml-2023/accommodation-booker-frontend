@@ -20,6 +20,7 @@ import { AccommodationsOfHostComponent } from './accommodations-of-host/accommod
 import { CreateAvailabilityComponent } from './create-availability/create-availability.component';
 import { AvailabilityListByAccommodationComponent } from './availability-list-by-accommodation/availability-list-by-accommodation.component';
 import { EditAvailabilityComponent } from './edit-availability/edit-availability.component';
+import { ViewReservationRequestsComponent } from './view-reservation-requests/view-reservation-requests.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { EditAvailabilityComponent } from './edit-availability/edit-availability
     AccommodationsOfHostComponent,
     CreateAvailabilityComponent,
     AvailabilityListByAccommodationComponent,
-    EditAvailabilityComponent
+    EditAvailabilityComponent,
+    ViewReservationRequestsComponent
   ],
   imports: [
     BrowserModule,
