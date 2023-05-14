@@ -70,6 +70,7 @@ export class AccommodationCreateComponent implements OnInit {
     this.accommodation.number = this.accommodationForm.value.number;
     this.accommodation.isAutomaticConfirmation = this.accommodationForm.value.isAutomaticConfirmation;
     this.accommodation.priceType = this.accommodationForm.value.priceType;
+    this.accommodation.userId = 1
     console.log(this.accommodation)
     this.imageService.uploadImages(this.accommodationForm.value.images, this.accommodationForm.value.name).subscribe({
       next: res => {

@@ -21,6 +21,9 @@ import { CreateAvailabilityComponent } from './create-availability/create-availa
 import { AvailabilityListByAccommodationComponent } from './availability-list-by-accommodation/availability-list-by-accommodation.component';
 import { EditAvailabilityComponent } from './edit-availability/edit-availability.component';
 import { ViewReservationRequestsComponent } from './view-reservation-requests/view-reservation-requests.component';
+import { GuestSidebarComponent } from './guest-sidebar/guest-sidebar.component';
+import { GuestsReservationsComponent } from './guests-reservations/guests-reservations.component';
+import { GuestSearchAccommodationComponent } from './guest-search-accommodation/guest-search-accommodation.component';
 
 
 @NgModule({
@@ -34,7 +37,10 @@ import { ViewReservationRequestsComponent } from './view-reservation-requests/vi
     CreateAvailabilityComponent,
     AvailabilityListByAccommodationComponent,
     EditAvailabilityComponent,
-    ViewReservationRequestsComponent
+    ViewReservationRequestsComponent,
+    GuestSidebarComponent,
+    GuestsReservationsComponent,
+    GuestSearchAccommodationComponent
   ],
   imports: [
     BrowserModule,

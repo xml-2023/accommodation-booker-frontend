@@ -9,6 +9,7 @@ export class CreateAccommodation {
     number: string = '';
     isAutomaticConfirmation: boolean = true;
     priceType: string = '';
+    userId : number = 0;
    
     public constructor(obj?: any) {
         if (obj) {
@@ -21,7 +22,8 @@ export class CreateAccommodation {
             this.street = obj.street;       
             this.number = obj.number;    
             this.isAutomaticConfirmation = obj.isAutomaticConfirmation;         
-            this.priceType = obj.priceType;        
+            this.priceType = obj.priceType;  
+            this.userId = obj.userId;      
         }
     }
 }

@@ -1,7 +1,7 @@
-<app-host-sidebar></app-host-sidebar>
+<app-guest-sidebar></app-guest-sidebar>
 <div class="card">
     <form class="form" [formGroup]="formGroup">
-        <span class="title">Search for a accommodation</span>
+        <span class="title">Search for an accommodation</span>
             <div>
                 <select [ngStyle]="{ 'background-color': '#5E6A86'}" name="location" id="location" formControlName="location" class="combobox">
                     <option value="" disabled selected hidden>Location</option>
@@ -87,12 +87,13 @@
             <!-- <span class="text-hline">
                 Reserve an accommmodation
             </span> -->
-            <!-- <span class="text-actual mint">
-                <button class="book-button">Reserve</button>
-            </span> -->
+            <span class="text-actual mint">
+                <button class="book-button" (click)="makeReservation(accommodation.id)">Reserve</button>
+            </span>
             </div>
         </div>
         </div>
     </div>
 </div>
   
+

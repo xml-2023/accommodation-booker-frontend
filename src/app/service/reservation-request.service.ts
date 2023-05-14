@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { CreateReservationRequest } from '../model/create-reservation-request.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,9 +20,14 @@ export class ReservationRequestService {
     changeRequestStatus(requestId : number, status : string) : Observable<any>{
         return this.http.put<any>(this.apiHost + 'reservation/' + requestId, status, {headers: this.headers})
     }
-//   createAccommodation(accommodation: any): Observable<any> {
-//     return this.http.post<any>(this.apiHost + 'accommodation', accommodation, {headers: this.headers});
-//   }
+
+    createReservation(dto : CreateReservationRequest): Observable<any> {
+        return this.http.post<any>(this.apiHost + 'reservation', dto, {headers: this.headers});
+    }
+
+    getAllRequestsByUser(userId : number) : Observable<any>{
+        return this.http.get<any>(this.apiHost + 'reservation/getByUserId/' + userId, {headers: this.headers})
+    }
 
 //   searchAccommodation(location: string, numOfGuests: number, startDate: string, endDate: string): Observable<any>{
 //     return this.http.get<any>(this.apiHost + 'accommodation' , {params: new HttpParams().set('location', location).set('numOfGuests', numOfGuests).set('startDate', startDate)

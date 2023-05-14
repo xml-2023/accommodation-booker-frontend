@@ -9,6 +9,9 @@ import { CreateAvailabilityComponent } from './create-availability/create-availa
 import { AvailabilityListByAccommodationComponent } from './availability-list-by-accommodation/availability-list-by-accommodation.component';
 import { EditAvailabilityComponent } from './edit-availability/edit-availability.component';
 import { ViewReservationRequestsComponent } from './view-reservation-requests/view-reservation-requests.component';
+import { GuestSidebarComponent } from './guest-sidebar/guest-sidebar.component';
+import { GuestsReservationsComponent } from './guests-reservations/guests-reservations.component';
+import { GuestSearchAccommodationComponent } from './guest-search-accommodation/guest-search-accommodation.component';
 
 const routes: Routes = [
   { path: 'host', component: HostSidebarComponent },
@@ -19,7 +22,10 @@ const routes: Routes = [
   { path: 'create-availability/:id', component: CreateAvailabilityComponent},
   { path: 'view-availability/:id', component: AvailabilityListByAccommodationComponent},
   { path: 'edit-availability/:accId/:avaId', component: EditAvailabilityComponent},
-  { path: 'view-reservations/:id', component: ViewReservationRequestsComponent}
+  { path: 'view-reservations/:id', component: ViewReservationRequestsComponent},
+  { path: 'guest', component: GuestSidebarComponent},
+  { path: 'guests-reservations', component: GuestsReservationsComponent},
+  { path: 'guest-search-accommodation', component: GuestSearchAccommodationComponent}
 
 ];
 
