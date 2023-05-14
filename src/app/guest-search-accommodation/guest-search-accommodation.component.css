@@ -1,11 +1,154 @@
-.h1{
-  text-align: center;
-  margin-top: 20px;
+.card{
+    max-width: 1020px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 30px;
+    background: #FAFAFA;
+    border: none;
 }
+.form {
+    display: flex;
+    flex-direction: column;
+    background: #606c88;
+    background: -webkit-linear-gradient(to right, #3f4c6b, #606c88);
+    background: linear-gradient(to right, #3f4c6b, #606c88);
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .title {
+    font-size: 2rem;
+    line-height: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: #fff;
+  }
+  
+  .description {
+    line-height: 1.5rem;
+    font-size: 1rem;
+    margin-top: 1rem;
+    color: rgb(209 213 219);
+  }
+  
+  .form div {
+    display: flex;
+    max-width: 28rem;
+    margin-top: 1rem;
+    column-gap: 0.5rem;
+  }
+  
+  .form div input {
+    outline: none;
+    line-height: 1.5rem;
+    font-size: 0.875rem;
+    color: rgb(255 255 255 );
+    padding: 0.5rem 0.875rem;
+    background-color: rgb(255 255 255 / 0.05);
+    border: 1px solid rgba(253, 253, 253, 0.363);
+    border-radius: 0.375rem;
+    flex: 1 1 auto;
+  }
 
-.title{
-  font-size: 65px;
-}
+  .combobox{
+    outline: none;
+    line-height: 1.5rem;
+    font-size: 0.875rem;
+    color: rgb(255 255 255 );
+    padding: 0.5rem 0.875rem;
+    background-color: rgb(255 255 255 / 0.05);
+    border: 1px solid rgba(253, 253, 253, 0.363);
+    border-radius: 0.375rem;
+    flex: 1 1 auto;
+    min-width: 200px;
+    margin-right: 1rem;
+  }
+  
+  .form div input::placeholder {
+    color: rgb(216, 212, 212);
+  }
+  
+  .form div input:focus {
+    border: 1px solid rgb(99 102 241);
+  }
+  
+  .form div button {
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    padding: 0.625rem 0.875rem;
+    background-color: #023075;
+    border-radius: 0.375rem;
+    border: none;
+    outline: none;
+    min-width: 100px;
+  }
+
+  .form div button:disabled{
+    background-color: #35527e;
+  }
+
+  .form div button:hover{
+    cursor: pointer;
+  }
+
+  .form div button:hover:disabled{
+    cursor: default;
+  }
+
+  .input-text{
+    max-width: 200px;
+    margin-right: 1rem;
+  }
+
+  .input-date{
+    min-width: 200px;
+    margin-right: 1rem;
+  }
+
+  .input-number{
+    min-width: 125px;
+    margin-right: 1rem;
+  }
+
+  .flight-list-card{
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 1.5rem;
+  }
+
+  .content{
+    max-width: 450px;
+    min-width: 450px;
+    min-height: 200px;
+    max-height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 4px;
+    transition: all .3s ease;
+    border-radius: 10px;
+  }
+
+  .placeholder-1{
+    color: white;
+    font-family: sans-serif;
+    left: 50px;
+    margin-top: -16px;
+    line-height: 14px;
+    position: absolute;
+  }
+
+
+
+
+ /* @import url('https://fonts.googleapis.com/css?family=Roboto:100,400'); */
+
 
 html, * {
   box-sizing: border-box;
@@ -34,7 +177,7 @@ body {
 
 .flight-card--header {
   width: 100%;
-  height: 140px;
+  height: 180px;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#264b76+0,002c5f+100 */
   background: #023075;
   padding: 10px 55px;
@@ -116,10 +259,14 @@ body {
   /* font-weight: 100; */
 }
 
+.detail-name{
+  color: #002C5F;
+  font-size: 25px;
+  display: block;
+}
+
 .detail-city {
   color: #002C5F;
-  font-size: 15px;
-  display: block;
 }
 
 .bc-from {
@@ -270,41 +417,12 @@ body {
   cursor: pointer;
 }
 
-.input-text{
-  max-width: 200px;
-  margin-right: 1rem;
+.not-found{
+  text-align: center;
+  margin-top: 70px;
 }
 
-.input-date{
-  min-width: 200px;
-  margin-right: 1rem;
-}
-
-.input-number{
-  min-width: 125px;
-  margin-right: 1rem;
-}
-
-.flight-list-card{
-  display: inline-flex;
-  align-items: center;
-  flex-wrap: wrap;
-  margin: 1.5rem;
-}
-
-.reservation-button{
-  color: #fff;
-  font-weight: 600;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  padding: 0.625rem 0.875rem;
-  background-color: #6DBE47;
-  border-radius: 0.375rem;
-  border: none;
-  outline: none;
-  min-width: 100px;
-}
-
-.reservation-button:hover{
-  cursor: pointer;
+.not-found b{
+  font-size: 50px;
+  color: #023075;
 }
