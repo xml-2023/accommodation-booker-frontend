@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccommodationCreateComponent } from './accommodation-create/accommodation-create.component';
 import { AccommodationSearchComponent } from './accommodation-search/accommodation-search.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { RegistrationComponent } from './registration/registration.component';
 import { HostSidebarComponent } from './host-sidebar/host-sidebar.component';
 import { ImageUploadComponent } from './image-upload/image-upload.component';
 import { AccommodationsOfHostComponent } from './accommodations-of-host/accommodations-of-host.component';
@@ -14,23 +16,36 @@ import { GuestsReservationsComponent } from './guests-reservations/guests-reserv
 import { GuestSearchAccommodationComponent } from './guest-search-accommodation/guest-search-accommodation.component';
 
 const routes: Routes = [
+  { path: '', component: HomePageComponent },
+  { path: 'registration', component: RegistrationComponent },
   { path: 'host', component: HostSidebarComponent },
   { path: 'create-accommodation', component: AccommodationCreateComponent },
   { path: 'search-accommodation', component: AccommodationSearchComponent },
-  { path: 'image-upload', component: ImageUploadComponent},
-  { path: 'my-accommodations', component: AccommodationsOfHostComponent},
-  { path: 'create-availability/:id', component: CreateAvailabilityComponent},
-  { path: 'view-availability/:id', component: AvailabilityListByAccommodationComponent},
-  { path: 'edit-availability/:accId/:avaId', component: EditAvailabilityComponent},
-  { path: 'view-reservations/:id', component: ViewReservationRequestsComponent},
-  { path: 'guest', component: GuestSidebarComponent},
-  { path: 'guests-reservations', component: GuestsReservationsComponent},
-  { path: 'guest-search-accommodation', component: GuestSearchAccommodationComponent}
-
+  { path: 'image-upload', component: ImageUploadComponent },
+  { path: 'my-accommodations', component: AccommodationsOfHostComponent },
+  { path: 'create-availability/:id', component: CreateAvailabilityComponent },
+  {
+    path: 'view-availability/:id',
+    component: AvailabilityListByAccommodationComponent,
+  },
+  {
+    path: 'edit-availability/:accId/:avaId',
+    component: EditAvailabilityComponent,
+  },
+  {
+    path: 'view-reservations/:id',
+    component: ViewReservationRequestsComponent,
+  },
+  { path: 'guest', component: GuestSidebarComponent },
+  { path: 'guests-reservations', component: GuestsReservationsComponent },
+  {
+    path: 'guest-search-accommodation',
+    component: GuestSearchAccommodationComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
