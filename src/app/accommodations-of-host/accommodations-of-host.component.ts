@@ -28,4 +28,7 @@ export class AccommodationsOfHostComponent implements OnInit {
   viewRequests(accommodationId : any): void{
     this.router.navigate(['view-reservations', accommodationId]);
   }
+  public goToDetails(accommodationName : any) : void{
+    this.router.navigate(['guest-search-accommodation', accommodationName]);
+  }
 }

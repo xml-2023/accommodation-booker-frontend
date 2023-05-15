@@ -88,6 +88,9 @@
                 Reserve an accommmodation
             </span> -->
             <span class="text-actual mint">
+                <button class="book-button" (click)="goToDetails(accommodation.name)">Details</button>
+            </span>
+            <span class="text-actual mint">
                 <button class="book-button" (click)="makeReservation(accommodation.id)">Reserve</button>
             </span>
             </div>

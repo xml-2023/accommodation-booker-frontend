@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CreateReservationRequest } from '../model/create-reservation-request.model';
 import { AccommodationService } from '../service/accommodation.service';
@@ -19,7 +20,8 @@ export class GuestSearchAccommodationComponent implements OnInit {
   hasFoundAccommodation : boolean = false
   dto : CreateReservationRequest = new CreateReservationRequest
 
-  constructor(private accommodationService: AccommodationService, private reservationService : ReservationRequestService, private toastr : ToastrService){}
+  constructor(private accommodationService: AccommodationService, private reservationService : ReservationRequestService, private toastr : ToastrService,
+     private router : Router){}
 
   ngOnInit(): void {
     this.accommodationService.findAll().subscribe(res => {
@@ -77,5 +79,9 @@ export class GuestSearchAccommodationComponent implements OnInit {
         this.toastr.error('Error', err)
       }
     })
+  }
+
+  public goToDetails(accommodationName : any) : void{
+    this.router.navigate(['guest-search-accommodation', accommodationName]);
   }
 }
