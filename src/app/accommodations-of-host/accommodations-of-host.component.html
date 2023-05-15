@@ -1,38 +1,24 @@
 <app-host-sidebar></app-host-sidebar>
-<div class="card">
-    <form class="form" [formGroup]="formGroup">
-        <span class="title">Search for a accommodation</span>
-            <div>
-                <select [ngStyle]="{ 'background-color': '#5E6A86'}" name="location" id="location" formControlName="location" class="combobox">
-                    <option value="" disabled selected hidden>Location</option>
-                    <option [value]="place" *ngFor="let place of allPlaces">{{place}}</option>
-                </select>
-                <input required placeholder="Start date" type="date" name="startDate" id="startDate" class="input-date" formControlName="startDate" >
-                <input required placeholder="End date" type="date" name="endDate" id="endDate" class="input-date" formControlName="endDate">
-                <input required placeholder="Number of guests" type="number" name="numOfGuests" id="numOfGuests" class="input-number" formControlName="numOfGuests" min="1">
-                <button class="submit-button" type="submit" (click)="search()" [disabled]="!formGroup.valid">Search</button>
-            </div>
-    </form>
+<div>
+    <h1 class="h1"><b class="title">All accommodations</b></h1>
 </div>
-
-<div class="not-found" *ngIf="hasFoundAccommodation == true">
-   <b>No accommodation were found!</b> 
-</div>
-
 <div class="flight-list-card">
-    <div class="flight-card" *ngFor="let accommodation of accommodations">
+    <div class="flight-card" *ngFor="let accommodation of allAccommodations">
         <div class="flight-card--header">
         <div class="flight-card--header-details">
             <div class="details-passenger">
             <span class="detail--title">
-                Total price
+                Name
             </span>
-            <span class="detail--price">
-                {{accommodation.totalPrice}}e
+            <span class="detail-text">
+                {{accommodation.name}}
             </span>
             </div>
             <div class="details-depart">
-            <span class="detail--title">
+            <span class="text-actual mint">
+                <button class="reservation-button" (click)="viewRequests(accommodation.id)">View reservation requests</button>
+            </span>
+            <!-- <span class="detail--title">
                 Start date
             </span>
             <span class="detail--text">
@@ -44,21 +30,22 @@
             </span>
             <span class="detail--text">
                 {{accommodation.endDate | date}}
-            </span>
+            </span> -->
             </div>
         </div>
         </div>
         <div class="flight-card--details">
         <div class="bc-from">
             <span class="detail-name">
-                {{accommodation.name}}
+                Address:
             </span>
-            <span class="detail-city">
+           
+            <div class="detail-city">
                 {{accommodation.street}} {{accommodation.number}}
-            </span>
-            <span class="detail-city">
+            </div>
+            <div class="detail-city">
                 {{accommodation.city}}, {{accommodation.country}}
-            </span>
+            </div>
         </div>
         <!-- <div class="bc-plane">
             <img src="https://cdn.onlinewebfonts.com/svg/img_537856.svg" />
@@ -76,23 +63,25 @@
         </div>
         <div class="flight-card-details--text">
             <div class="text-left">
-            <span class="text-hline">
+            <!--<span class="text-hline">
                 Unit price
             </span>
-            <span class="text-actual">
+             <span class="text-actual">
                 {{accommodation.unitPrice}}e
+            </span> -->
+            <span class="text-actual mint">
+                <button class="book-button" (click)="viewAvailability(accommodation.id)">View availability</button>
             </span>
             </div>
             <div class="text-right">
             <!-- <span class="text-hline">
                 Reserve an accommmodation
             </span> -->
-            <!-- <span class="text-actual mint">
-                <button class="book-button">Reserve</button>
-            </span> -->
+            <span class="text-actual mint">
+                <button class="book-button" (click)="createAvailability(accommodation.id)">Create new availability</button>
+            </span>
             </div>
         </div>
         </div>
     </div>
 </div>
-  

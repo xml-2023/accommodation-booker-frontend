@@ -3,6 +3,7 @@ import { CreateAccommodation } from '../model/create-accommodation.model';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AccommodationService } from '../service/accommodation.service';
 import { ToastrService } from 'ngx-toastr';
+import { ImageService } from '../service/image.service';
 
 @Component({
   selector: 'app-accommodation-create',
@@ -23,10 +24,11 @@ export class AccommodationCreateComponent implements OnInit {
     street : new FormControl(),
     number : new FormControl(),
     isAutomaticConfirmation : new FormControl(),
-    priceType : new FormControl()
+    priceType : new FormControl(),
+    images : new FormControl()
   })
 
-  constructor( private accommodationService : AccommodationService, private formBuilder : FormBuilder, private toastr: ToastrService){ }
+  constructor( private accommodationService : AccommodationService, private formBuilder : FormBuilder, private toastr: ToastrService, private imageService : ImageService){ }
 
   ngOnInit(): void {
     
@@ -42,8 +44,19 @@ export class AccommodationCreateComponent implements OnInit {
       street : [this.accommodation.street, Validators.required],
       number : [this.accommodation.number, Validators.required],
       isAutomaticConfirmation : [this.accommodation.isAutomaticConfirmation, Validators.required],
-      priceType : [this.accommodation.priceType, Validators.required]
+      priceType : [this.accommodation.priceType, Validators.required],
+      images: ['', Validators.required]
     })
+  }
+
+  onFileSelect(event: any) {
+    if (event.target.files.length > 0) {
+      const files = event.target.files;
+      const imagesControl = this.accommodationForm.get('images');
+      if (imagesControl) {
+        imagesControl.setValue(files);
+      }
+    }
   }
 
   public createAccommodation() : void{
@@ -57,10 +70,20 @@ export class AccommodationCreateComponent implements OnInit {
     this.accommodation.number = this.accommodationForm.value.number;
     this.accommodation.isAutomaticConfirmation = this.accommodationForm.value.isAutomaticConfirmation;
     this.accommodation.priceType = this.accommodationForm.value.priceType;
+    this.accommodation.userId = 1
     console.log(this.accommodation)
-    this.accommodationService.createAccommodation(this.accommodation).subscribe(res => {
-      this.toastr.success('Success', 'Accommodation is created!');
-     });
+    this.imageService.uploadImages(this.accommodationForm.value.images, this.accommodationForm.value.name).subscribe({
+      next: res => {
+        this.accommodationService.createAccommodation(this.accommodation).subscribe(res => {
+          this.toastr.success('Success', 'Accommodation is created!');
+         });
+      },
+      error: error => {
+        console.error(error);
+      }
+    });
+    
+   
   }  
 
 }

@@ -1,3 +1,4 @@
+<app-host-sidebar></app-host-sidebar>
 <div class="form">
     <div class="subtitle">Create accommodation</div>
     <form [formGroup]="accommodationForm">
@@ -71,6 +72,19 @@
         <div *ngIf="accommodationForm.controls['isAutomaticConfirmation'].touched && !accommodationForm.controls['isAutomaticConfirmation'].valid" class="text-danger"> This field is required!  </div>          
         <!-- <div class="cut"></div> -->
         <label for="isAutomaticConfirmation" class="placeholder-confirmation">Is automatic confirmation?</label>
+    </div>
+</div>
+<div class="ic2">
+    <div> 
+        <label for="images" class="placeholder-confirmation">Images</label>
+            <input
+              type="file"
+              id="images"
+              (change)="onFileSelect($event)"
+              multiple
+              accept="image/*"
+              required
+            /> 
     </div>
 </div>
     <button type="text" class="submit" (click)="createAccommodation()" [disabled]="!accommodationForm.valid">Create</button>

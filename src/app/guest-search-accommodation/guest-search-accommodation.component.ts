@@ -1,22 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { CreateReservationRequest } from '../model/create-reservation-request.model';
 import { AccommodationService } from '../service/accommodation.service';
-import { SearchAccommodation } from '../model/search-accommodation.model';
+import { ReservationRequestService } from '../service/reservation-request.service';
 
 @Component({
-  selector: 'app-accommodation-search',
-  templateUrl: './accommodation-search.component.html',
-  styleUrls: ['./accommodation-search.component.css']
+  selector: 'app-guest-search-accommodation',
+  templateUrl: './guest-search-accommodation.component.html',
+  styleUrls: ['./guest-search-accommodation.component.css']
 })
-export class AccommodationSearchComponent implements OnInit{
+export class GuestSearchAccommodationComponent implements OnInit {
   formGroup!: FormGroup;
   accommodations : any
   selectedNum : any
   allAccommodations : any
   allPlaces : string[] = []
   hasFoundAccommodation : boolean = false
+  dto : CreateReservationRequest = new CreateReservationRequest
 
-  constructor(private accommodationService: AccommodationService){}
+  constructor(private accommodationService: AccommodationService, private reservationService : ReservationRequestService, private toastr : ToastrService){}
 
   ngOnInit(): void {
     this.accommodationService.findAll().subscribe(res => {
@@ -57,5 +60,22 @@ export class AccommodationSearchComponent implements OnInit{
         this.allPlaces.push(accommodation.city)
       }
     }
+  }
+
+  public makeReservation(accommodationId : any) : void{
+    this.dto.accommodationId = accommodationId;
+    this.dto.userId = 1
+    this.dto.guestNumber = this.formGroup.value.numOfGuests
+    this.dto.reserveFrom = this.formGroup.value.startDate
+    this.dto.reserveTo = this.formGroup.value.endDate
+
+    this.reservationService.createReservation(this.dto).subscribe({
+      next : res => {
+        this.toastr.success('Success', 'Created reservation!')
+      },
+      error : err => {
+        this.toastr.error('Error', err)
+      }
+    })
   }
 }
