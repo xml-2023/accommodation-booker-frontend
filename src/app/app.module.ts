@@ -3,12 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule} from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AccommodationCreateComponent } from './accommodation-create/accommodation-create.component';
 import { AccommodationSearchComponent } from './accommodation-search/accommodation-search.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { RegistrationComponent } from './registration/registration.component';
 import { HostSidebarComponent } from './host-sidebar/host-sidebar.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -25,12 +28,14 @@ import { GuestSidebarComponent } from './guest-sidebar/guest-sidebar.component';
 import { GuestsReservationsComponent } from './guests-reservations/guests-reservations.component';
 import { GuestSearchAccommodationComponent } from './guest-search-accommodation/guest-search-accommodation.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
     AccommodationCreateComponent,
     AccommodationSearchComponent,
+    HomePageComponent,
+    SignInComponent,
+    RegistrationComponent,
     HostSidebarComponent,
     ImageUploadComponent,
     AccommodationsOfHostComponent,
@@ -40,7 +45,7 @@ import { GuestSearchAccommodationComponent } from './guest-search-accommodation/
     ViewReservationRequestsComponent,
     GuestSidebarComponent,
     GuestsReservationsComponent,
-    GuestSearchAccommodationComponent
+    GuestSearchAccommodationComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +53,7 @@ import { GuestSearchAccommodationComponent } from './guest-search-accommodation/
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    FormsModule,
     ToastrModule.forRoot({
       timeOut: 3000,
       positionClass: 'toast-top-right',
@@ -56,9 +62,9 @@ import { GuestSearchAccommodationComponent } from './guest-search-accommodation/
     MatToolbarModule,
     MatListModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
