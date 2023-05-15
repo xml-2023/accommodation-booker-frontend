@@ -16,6 +16,9 @@
             </div>
             <div class="details-depart">
             <span class="text-actual mint">
+                <button class="reservation-button" (click)="goToDetails(accommodation.name)">Details</button>
+            </span>
+            <span class="text-actual mint">
                 <button class="reservation-button" (click)="viewRequests(accommodation.id)">View reservation requests</button>
             </span>
             <!-- <span class="detail--title">

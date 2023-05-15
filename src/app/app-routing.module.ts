@@ -14,6 +14,7 @@ import { ViewReservationRequestsComponent } from './view-reservation-requests/vi
 import { GuestSidebarComponent } from './guest-sidebar/guest-sidebar.component';
 import { GuestsReservationsComponent } from './guests-reservations/guests-reservations.component';
 import { GuestSearchAccommodationComponent } from './guest-search-accommodation/guest-search-accommodation.component';
+import { AccommodationDetailsComponent } from './accommodation-details/accommodation-details.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -42,6 +43,10 @@ const routes: Routes = [
     path: 'guest-search-accommodation',
     component: GuestSearchAccommodationComponent,
   },
+  {
+    path: 'accommodation-details/:name',
+    component: AccommodationDetailsComponent,
+  }
 ];
 
 @NgModule({
