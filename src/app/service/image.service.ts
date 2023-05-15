@@ -20,8 +20,4 @@ export class ImageService {
     return this.http.post<string>(this.apiHost + 'accommodation/image/upload', formData);
   }
 
-  getImagesByAccommodation(name : string) : Observable<any> {
-    return this.http.get<string[]>(this.apiHost + 'accommodation/image', {params: new HttpParams().set('name', name)})
-  }
-
 }

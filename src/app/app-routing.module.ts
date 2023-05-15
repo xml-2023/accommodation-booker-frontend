@@ -12,7 +12,6 @@ import { ViewReservationRequestsComponent } from './view-reservation-requests/vi
 import { GuestSidebarComponent } from './guest-sidebar/guest-sidebar.component';
 import { GuestsReservationsComponent } from './guests-reservations/guests-reservations.component';
 import { GuestSearchAccommodationComponent } from './guest-search-accommodation/guest-search-accommodation.component';
-import { AccommodationDetailsComponent } from './accommodation-details/accommodation-details.component';
 
 const routes: Routes = [
   { path: 'host', component: HostSidebarComponent },
@@ -26,8 +25,7 @@ const routes: Routes = [
   { path: 'view-reservations/:id', component: ViewReservationRequestsComponent},
   { path: 'guest', component: GuestSidebarComponent},
   { path: 'guests-reservations', component: GuestsReservationsComponent},
-  { path: 'guest-search-accommodation', component: GuestSearchAccommodationComponent},
-  { path: 'guest-search-accommodation/:name', component: AccommodationDetailsComponent}
+  { path: 'guest-search-accommodation', component: GuestSearchAccommodationComponent}
 
 ];
 
