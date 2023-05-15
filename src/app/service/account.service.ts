@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { CreateAccount } from '../model/create-account.model';
 
 @Injectable({
   providedIn: 'root',
@@ -13,8 +14,14 @@ export class AccountService {
 
   constructor(private http: HttpClient) {}
 
-  createAccount(account: any): Observable<any> {
-    return this.http.post<any>(this.apiHost + 'account', account, {
+  createHostAccount(account: CreateAccount): Observable<any> {
+    return this.http.post<any>(this.apiHost + 'account/host', account, {
+      headers: this.headers,
+    });
+  }
+
+  createGuestAccount(account: CreateAccount): Observable<any> {
+    return this.http.post<any>(this.apiHost + 'account/guest', account, {
       headers: this.headers,
     });
   }

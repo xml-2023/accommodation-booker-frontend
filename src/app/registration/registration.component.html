@@ -59,7 +59,11 @@
         </div>
         <div class="input">
           <label>Role</label>
-          <select class="select" [(ngModel)]="createAccount.role" name="role">
+          <select
+            class="select"
+            [(ngModel)]="createAccount.roleName"
+            name="role"
+          >
             <option></option>
             <option>Host</option>
             <option>Guest</option>

@@ -19,10 +19,18 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void {}
 
   public onSubmit() {
-    if (this.validateForm()) {
-      this.accountService.createAccount(this.createAccount).subscribe((res) => {
-        this.toastr.success('Success', 'Account is created!');
-      });
+    if (this.validateForm() && this.createAccount.roleName === 'Host') {
+      this.accountService
+        .createHostAccount(this.createAccount)
+        .subscribe((res) => {
+          this.toastr.success('Success', 'Host account is created!');
+        });
+    } else if (this.validateForm() && this.createAccount.roleName === 'Guest') {
+      this.accountService
+        .createGuestAccount(this.createAccount)
+        .subscribe((res) => {
+          this.toastr.success('Success', 'Guest account is created!');
+        });
     } else {
       this.toastr.error('Please, fill in all fields!');
     }
@@ -39,7 +47,7 @@ export class RegistrationComponent implements OnInit {
       this.createAccount.city !== '' &&
       this.createAccount.street !== '' &&
       this.createAccount.number !== '' &&
-      this.createAccount.role !== ''
+      this.createAccount.roleName !== ''
     ) {
       return true;
     }

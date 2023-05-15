@@ -1,27 +1,27 @@
 export class CreateAccount {
   username: string = '';
-  email: string = '';
   password: string = '';
   name: string = '';
   surname: string = '';
-  city: string = '';
+  email: string = '';
   country: string = '';
+  city: string = '';
   street: string = '';
   number: string = '';
-  role: string = '';
+  roleName: string = '';
 
   public constructor(obj?: any) {
     if (obj) {
       this.username = obj.username;
-      this.email = obj.email;
       this.password = obj.password;
       this.name = obj.name;
       this.surname = obj.surname;
-      this.city = obj.city;
+      this.email = obj.email;
       this.country = obj.country;
+      this.city = obj.city;
       this.street = obj.street;
       this.number = obj.number;
-      this.role = obj.role;
+      this.roleName = obj.roleName;
     }
   }
 }
