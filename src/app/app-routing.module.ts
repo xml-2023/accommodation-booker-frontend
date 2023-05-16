@@ -15,6 +15,7 @@ import { GuestSidebarComponent } from './guest-sidebar/guest-sidebar.component';
 import { GuestsReservationsComponent } from './guests-reservations/guests-reservations.component';
 import { GuestSearchAccommodationComponent } from './guest-search-accommodation/guest-search-accommodation.component';
 import { RoleGuardService } from './service/role-guard.service';
+import { AccommodationDetailsComponent } from './accommodation-details/accommodation-details.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -90,6 +91,12 @@ const routes: Routes = [
     component: GuestSearchAccommodationComponent,
     canActivate: [RoleGuardService],
     data: { expectedRole: 'Guest' },
+  },
+  {
+    path: 'accommodation-details/:name',
+    component: AccommodationDetailsComponent,
+    canActivate: [RoleGuardService],
+    data: { expectedRole: 'Host' || 'Guest' },
   },
 ];
 
