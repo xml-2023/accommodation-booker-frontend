@@ -1,0 +1,29 @@
+<app-host-sidebar></app-host-sidebar>
+<div class="form">
+    <div class="subtitle">Edit availability</div>
+    <form [formGroup]="availabilityForm">
+    <div class="ic2">
+        <div class="input-container ">
+            <input type="date" class="input" id="availableFrom" formControlName="availableFrom" [ngClass]="{'is-invalid': availabilityForm.controls['availableFrom'].errors}" [value]="availabilityForm.controls['availableFrom'].value">
+            <div *ngIf="availabilityForm.controls['availableFrom'].touched && !availabilityForm.controls['availableFrom'].valid" class="text-danger"> This field is required! </div>          
+            <!-- <div class="cut"></div> -->
+            <label for="name" class="placeholder-date1">Start date</label>     
+        </div>
+        <div class="input-container icr">
+            <input type="date" class="input" id="availableTo" formControlName="availableTo" [ngClass]="{'is-invalid': availabilityForm.controls['availableTo'].errors}" [value]="availabilityForm.controls['availableTo'].value">
+            <div *ngIf="availabilityForm.controls['availableTo'].touched && !availabilityForm.controls['availableTo'].valid" class="text-danger"> This field is required! </div>         
+            <!-- <div class="cut"></div> -->
+            <label for="description" class="placeholder-date">End date</label>
+        </div>
+    </div>
+<div class="ic2">
+    <div class="input-container ">
+        <input type="number" class="input" id="priceInEuros" formControlName="priceInEuros" [ngClass]="{'is-invalid': availabilityForm.controls['priceInEuros'].errors}">
+        <div *ngIf="availabilityForm.controls['priceInEuros'].touched && !availabilityForm.controls['priceInEuros'].valid" class="text-danger"> This field is required! </div>          
+    
+        <label for="minGuests" class="placeholder-date">Price in euros</label>
+    </div>
+</div>
+    <button type="text" class="submit" (click)="editAvailability()" [disabled]="!availabilityForm.valid">Edit</button>
+</form>
+  </div>

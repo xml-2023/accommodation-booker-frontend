@@ -1,0 +1,87 @@
+<app-host-sidebar></app-host-sidebar>
+<div>
+    <h1 class="h1"><b class="title">All accommodations</b></h1>
+</div>
+<div class="flight-list-card">
+    <div class="flight-card" *ngFor="let request of requests">
+        <div class="flight-card--header">
+        <div class="flight-card--header-details">
+            <div class="details-passenger">
+            <span class="detail--title">
+                Status
+            </span>
+            <span class="detail-text">
+                {{request.status}}
+            </span>
+            </div>
+            <div class="details-depart">
+            <!-- <span class="text-actual mint">
+                <button class="reservation-button" (click)="viewRequests(request.id)">View reservation requests</button>
+            </span> -->
+            <span class="detail--title">
+                Start date
+            </span>
+            <span class="detail--text">
+                {{request.reserveFrom | date}}
+            </span>
+           
+            <span class="detail--title">
+                End date
+            </span>
+            <span class="detail--text">
+                {{request.reserveTo | date}}
+            </span>
+            </div>
+        </div>
+        </div>
+        <div class="flight-card--details">
+        <div class="bc-from">
+            <span class="detail-name">
+                Guests number:
+            </span>
+           
+            <div class="detail-city">
+                {{request.guestsNumber}}
+            </div>
+        </div>
+        <!-- <div class="bc-plane">
+            <img src="https://cdn.onlinewebfonts.com/svg/img_537856.svg" />
+        </div> -->
+        <div class="bc-to">
+            <span class="detail-name">
+                Num. of cancellations:
+            </span>
+            <div class="detail-city">
+                {{request.cancellations}}
+            </div>
+            <!-- <span class="detail-time">
+                Max guests: {{request.maxGuests}}
+            </span>
+            <span class="detail-city">
+                Description: {{request.description}}
+            </span> -->
+        </div>
+        <div class="flight-card-details--text">
+            <div class="text-left">
+            <!--<span class="text-hline">
+                Unit price
+            </span>
+             <span class="text-actual">
+                {{accommodation.unitPrice}}e
+            </span> -->
+            <span class="text-actual mint">
+                <button class="reservation-button" (click)="acceptRequest(request.id)" *ngIf="request.status === 'PENDING' ">Accept</button>
+            </span>
+            </div>
+            <div class="text-right">
+            <!-- <span class="text-hline">
+                Reserve an accommmodation
+            </span> -->
+            <span class="text-actual mint">
+                <button class="book-button" (click)="rejectRequest(request.id)" *ngIf="request.status === 'PENDING' ">Reject</button>
+            </span>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

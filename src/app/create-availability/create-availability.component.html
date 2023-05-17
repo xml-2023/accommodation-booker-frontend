@@ -1,0 +1,29 @@
+<app-host-sidebar></app-host-sidebar>
+<div class="form">
+    <div class="subtitle">Create availability</div>
+    <form [formGroup]="availabilityForm">
+    <div class="ic2">
+        <div class="input-container ">
+            <input type="date" class="input" id="from" formControlName="from" [ngClass]="{'is-invalid': availabilityForm.controls['from'].errors}">
+            <div *ngIf="availabilityForm.controls['from'].touched && !availabilityForm.controls['from'].valid" class="text-danger"> This field is required! </div>          
+            <!-- <div class="cut"></div> -->
+            <label for="name" class="placeholder-date1">Start date</label>     
+        </div>
+        <div class="input-container icr">
+            <input type="date" class="input" id="to" formControlName="to" [ngClass]="{'is-invalid': availabilityForm.controls['to'].errors}">
+            <div *ngIf="availabilityForm.controls['to'].touched && !availabilityForm.controls['to'].valid" class="text-danger"> This field is required! </div>         
+            <!-- <div class="cut"></div> -->
+            <label for="description" class="placeholder-date">End date</label>
+        </div>
+    </div>
+<div class="ic2">
+    <div class="input-container ">
+        <input type="number" class="input" id="priceInEuros" formControlName="priceInEuros" [ngClass]="{'is-invalid': availabilityForm.controls['priceInEuros'].errors}">
+        <div *ngIf="availabilityForm.controls['priceInEuros'].touched && !availabilityForm.controls['priceInEuros'].valid" class="text-danger"> This field is required! </div>          
+    
+        <label for="minGuests" class="placeholder-date">Price in euros</label>
+    </div>
+</div>
+    <button type="text" class="submit" (click)="createAccommodation()" [disabled]="!availabilityForm.valid">Create</button>
+</form>
+  </div>

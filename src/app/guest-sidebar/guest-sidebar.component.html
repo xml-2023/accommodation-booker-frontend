@@ -1,0 +1,11 @@
+<mat-toolbar color="primary" class="space">
+  <span>Accommodation Booker</span>
+  <div>
+    <a mat-button [routerLink]="'/guest'">Home</a>
+    <a mat-button [routerLink]="'/guest-search-accommodation'"
+      >Search accommodation</a
+    >
+    <a mat-button [routerLink]="'/guests-reservations'">My reservations</a>
+    <a mat-raised-button (click)="logout()">Sign out</a>
+  </div>
+</mat-toolbar>

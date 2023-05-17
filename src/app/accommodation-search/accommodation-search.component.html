@@ -1,0 +1,98 @@
+<app-host-sidebar></app-host-sidebar>
+<div class="card">
+    <form class="form" [formGroup]="formGroup">
+        <span class="title">Search for a accommodation</span>
+            <div>
+                <select [ngStyle]="{ 'background-color': '#5E6A86'}" name="location" id="location" formControlName="location" class="combobox">
+                    <option value="" disabled selected hidden>Location</option>
+                    <option [value]="place" *ngFor="let place of allPlaces">{{place}}</option>
+                </select>
+                <input required placeholder="Start date" type="date" name="startDate" id="startDate" class="input-date" formControlName="startDate" >
+                <input required placeholder="End date" type="date" name="endDate" id="endDate" class="input-date" formControlName="endDate">
+                <input required placeholder="Number of guests" type="number" name="numOfGuests" id="numOfGuests" class="input-number" formControlName="numOfGuests" min="1">
+                <button class="submit-button" type="submit" (click)="search()" [disabled]="!formGroup.valid">Search</button>
+            </div>
+    </form>
+</div>
+
+<div class="not-found" *ngIf="hasFoundAccommodation == true">
+   <b>No accommodation were found!</b> 
+</div>
+
+<div class="flight-list-card">
+    <div class="flight-card" *ngFor="let accommodation of accommodations">
+        <div class="flight-card--header">
+        <div class="flight-card--header-details">
+            <div class="details-passenger">
+            <span class="detail--title">
+                Total price
+            </span>
+            <span class="detail--price">
+                {{accommodation.totalPrice}}e
+            </span>
+            </div>
+            <div class="details-depart">
+            <span class="detail--title">
+                Start date
+            </span>
+            <span class="detail--text">
+                {{accommodation.startDate | date}}
+            </span>
+           
+            <span class="detail--title">
+                End date
+            </span>
+            <span class="detail--text">
+                {{accommodation.endDate | date}}
+            </span>
+            </div>
+        </div>
+        </div>
+        <div class="flight-card--details">
+        <div class="bc-from">
+            <span class="detail-name">
+                {{accommodation.name}}
+            </span>
+            <span class="detail-city">
+                {{accommodation.street}} {{accommodation.number}}
+            </span>
+            <span class="detail-city">
+                {{accommodation.city}}, {{accommodation.country}}
+            </span>
+        </div>
+        <!-- <div class="bc-plane">
+            <img src="https://cdn.onlinewebfonts.com/svg/img_537856.svg" />
+        </div> -->
+        <div class="bc-to">
+            <span class="detail-time">
+                Min guests: {{accommodation.minGuests}}
+            </span>
+            <span class="detail-time">
+                Max guests: {{accommodation.maxGuests}}
+            </span>
+            <span class="detail-city">
+                Description: {{accommodation.description}}
+            </span>
+        </div>
+        <div class="flight-card-details--text">
+            <div class="text-left">
+            <span class="text-hline">
+                Unit price
+            </span>
+            <span class="text-actual">
+                {{accommodation.unitPrice}}e
+            </span>
+            </div>
+            <div class="text-right">
+            <!-- <span class="text-hline">
+                Reserve an accommmodation
+            </span> -->
+            <!-- <span class="text-actual mint">
+                <button class="book-button">Reserve</button>
+            </span> -->
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+  
