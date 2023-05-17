@@ -1,0 +1,82 @@
+<app-host-sidebar></app-host-sidebar>
+<div class="container">
+  <h2>Profile info</h2>
+  <form class="form" (submit)="editProfile()">
+    <div class="form-parts">
+      <div class="left-part">
+        <div class="input">
+          <label>Username</label>
+          <input
+            type="text"
+            [(ngModel)]="createAccount.username"
+            name="username"
+          />
+        </div>
+        <div class="input">
+          <label>E-mail</label>
+          <input type="text" [(ngModel)]="createAccount.email" name="email" />
+        </div>
+        <div class="input">
+          <label>Password</label>
+          <input
+            type="password"
+            [(ngModel)]="createAccount.password"
+            name="password"
+          />
+        </div>
+        <div class="input">
+          <label>Name</label>
+          <input type="text" [(ngModel)]="createAccount.name" name="name" />
+        </div>
+        <div class="input">
+          <label>Surname</label>
+          <input
+            type="text"
+            [(ngModel)]="createAccount.surname"
+            name="surname"
+          />
+        </div>
+      </div>
+      <div class="right-part">
+        <div class="input">
+          <label>Country</label>
+          <input
+            type="text"
+            [(ngModel)]="createAccount.country"
+            name="country"
+          />
+        </div>
+        <div class="input">
+          <label>City</label>
+          <input type="text" [(ngModel)]="createAccount.city" name="city" />
+        </div>
+        <div class="input">
+          <label>Street</label>
+          <input type="text" [(ngModel)]="createAccount.street" name="street" />
+        </div>
+        <div class="input">
+          <label>Street Number</label>
+          <input type="text" [(ngModel)]="createAccount.number" name="number" />
+        </div>
+        <div class="input">
+          <label>Role</label>
+          <select
+            class="select"
+            [(ngModel)]="createAccount.roleName"
+            name="role"
+          >
+            <option></option>
+            <option>Host</option>
+            <option>Guest</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="buttons">
+      <button class="delete-button" (click)="deleteProfile()">
+        Delete Profile
+      </button>
+      <button class="edit-button" type="submit">Edit Profile</button>
+    </div>
+  </form>
+</div>
