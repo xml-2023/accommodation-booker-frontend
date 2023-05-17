@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { AccommodationService } from '../service/accommodation.service';
 import { ToastrService } from 'ngx-toastr';
 import { ImageService } from '../service/image.service';
+import { AccountService } from '../service/account.service';
 
 @Component({
   selector: 'app-accommodation-create',
@@ -28,7 +29,7 @@ export class AccommodationCreateComponent implements OnInit {
     images : new FormControl()
   })
 
-  constructor( private accommodationService : AccommodationService, private formBuilder : FormBuilder, private toastr: ToastrService, private imageService : ImageService){ }
+  constructor( private accommodationService : AccommodationService, private formBuilder : FormBuilder, private toastr: ToastrService, private imageService : ImageService, private accountService: AccountService){ }
 
   ngOnInit(): void {
     
@@ -70,7 +71,7 @@ export class AccommodationCreateComponent implements OnInit {
     this.accommodation.number = this.accommodationForm.value.number;
     this.accommodation.isAutomaticConfirmation = this.accommodationForm.value.isAutomaticConfirmation;
     this.accommodation.priceType = this.accommodationForm.value.priceType;
-    this.accommodation.userId = 1
+    this.accommodation.userId = this.accountService.currentUser.id;
     console.log(this.accommodation)
     this.imageService.uploadImages(this.accommodationForm.value.images, this.accommodationForm.value.name).subscribe({
       next: res => {

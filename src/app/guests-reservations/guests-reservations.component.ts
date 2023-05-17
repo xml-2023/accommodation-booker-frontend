@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { GuestReservationResponse } from '../model/guest-reservation-response.model';
 import { ReservationRequestService } from '../service/reservation-request.service';
+import { AccountService } from '../service/account.service';
 
 @Component({
   selector: 'app-guests-reservations',
@@ -11,10 +12,10 @@ import { ReservationRequestService } from '../service/reservation-request.servic
 export class GuestsReservationsComponent implements OnInit {
 
   public userReservations : GuestReservationResponse[] = []
-  constructor(private reservationService : ReservationRequestService, private toastr : ToastrService) { }
+  constructor(private reservationService : ReservationRequestService, private toastr : ToastrService, private accountService : AccountService) { }
 
   ngOnInit(): void {
-    this.reservationService.getAllRequestsByUser(1).subscribe( res => {
+    this.reservationService.getAllRequestsByUser(this.accountService.currentUser.id).subscribe( res => {
       this.userReservations = res
     })
   }

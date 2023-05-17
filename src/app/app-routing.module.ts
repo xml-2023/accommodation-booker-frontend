@@ -97,8 +97,8 @@ const routes: Routes = [
   {
     path: 'accommodation-details/:name',
     component: AccommodationDetailsComponent,
-    canActivate: [RoleGuardService],
-    data: { expectedRole: 'Host' || 'Guest' },
+    // canActivate: [RoleGuardService],
+    // data: { expectedRole:  'Guest' },
   },
   {
     path: 'profile-host',

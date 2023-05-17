@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CreateReservationRequest } from '../model/create-reservation-request.model';
 import { AccommodationService } from '../service/accommodation.service';
 import { ReservationRequestService } from '../service/reservation-request.service';
+import { AccountService } from '../service/account.service';
 
 @Component({
   selector: 'app-guest-search-accommodation',
@@ -21,7 +22,7 @@ export class GuestSearchAccommodationComponent implements OnInit {
   dto : CreateReservationRequest = new CreateReservationRequest
 
   constructor(private accommodationService: AccommodationService, private reservationService : ReservationRequestService, private toastr : ToastrService
-    , private router : Router){}
+    , private router : Router, private accountService: AccountService){}
 
   ngOnInit(): void {
     this.accommodationService.findAll().subscribe(res => {
@@ -66,7 +67,7 @@ export class GuestSearchAccommodationComponent implements OnInit {
 
   public makeReservation(accommodationId : any) : void{
     this.dto.accommodationId = accommodationId;
-    this.dto.userId = 1
+    this.dto.userId = this.accountService.currentUser.id;
     this.dto.guestNumber = this.formGroup.value.numOfGuests
     this.dto.reserveFrom = this.formGroup.value.startDate
     this.dto.reserveTo = this.formGroup.value.endDate

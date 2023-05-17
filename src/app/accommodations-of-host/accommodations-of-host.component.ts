@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AccommodationService } from '../service/accommodation.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AccountService } from '../service/account.service';
 
 @Component({
   selector: 'app-accommodations-of-host',
@@ -9,11 +10,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AccommodationsOfHostComponent implements OnInit {
   allAccommodations : any[] = []
-  constructor(private accommodationService: AccommodationService, private route: ActivatedRoute,  private router : Router) { }
+  constructor(private accommodationService: AccommodationService, private route: ActivatedRoute,  private router : Router, 
+    private accountService: AccountService) { }
 
   ngOnInit(): void {
-    this.accommodationService.findAll().subscribe(res => {
+    this.accommodationService.findByHostId(this.accountService.currentUser.id).subscribe(res => {
       this.allAccommodations = res
+      console.log(res)
     })
   }
 
@@ -22,6 +25,7 @@ export class AccommodationsOfHostComponent implements OnInit {
   }
 
   viewAvailability(accommodationId: any):void{
+    console.log("acc ID" + accommodationId)
     this.router.navigate(['view-availability', accommodationId]);
   }
 

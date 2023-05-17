@@ -29,4 +29,8 @@ export class AccommodationService {
     return this.http.get<any>(this.apiHost + 'accommodation/findById', {params: new HttpParams().set('id', accommodationId)})
   }
 
+  findByHostId(hostId: number) : Observable<any> {
+    return this.http.get<any>(this.apiHost + 'accommodation/' + hostId, {headers: this.headers})
+  }
+
 }
