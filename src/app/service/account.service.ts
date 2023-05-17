@@ -32,6 +32,42 @@ export class AccountService {
     });
   }
 
+  editHostAccount(id: any, account: CreateAccount): Observable<any> {
+    return this.http.put<any>(this.apiHost + 'account/host/' + id, account, {
+      headers: this.headers,
+    });
+  }
+
+  editGuestAccount(id: any, account: CreateAccount): Observable<any> {
+    return this.http.put<any>(this.apiHost + 'account/guest/' + id, account, {
+      headers: this.headers,
+    });
+  }
+
+  findHostById(id: any): Observable<any> {
+    return this.http.get<any>(this.apiHost + 'account/host/' + id, {
+      headers: this.headers,
+    });
+  }
+
+  findGuestById(id: any): Observable<any> {
+    return this.http.get<any>(this.apiHost + 'account/guest/' + id, {
+      headers: this.headers,
+    });
+  }
+
+  deleteHostAccount(id: any): Observable<any> {
+    return this.http.delete<any>(this.apiHost + 'account/host/' + id, {
+      headers: this.headers,
+    });
+  }
+
+  deleteGuestAccount(id: any): Observable<any> {
+    return this.http.delete<any>(this.apiHost + 'account/guest/' + id, {
+      headers: this.headers,
+    });
+  }
+
   login(data: any): Observable<any> {
     return this.http
       .post<any>(this.apiHost + 'account/login', data, {

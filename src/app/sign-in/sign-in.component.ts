@@ -24,7 +24,6 @@ export class SignInComponent implements OnInit {
   public login() {
     this.accountService.login(this.data).subscribe(
       (res) => {
-        console.log(res);
         this.accountService
           .getByUsername(this.data.username)
           .subscribe((res) => {

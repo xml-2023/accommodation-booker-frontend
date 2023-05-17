@@ -28,6 +28,8 @@ import { GuestSidebarComponent } from './guest-sidebar/guest-sidebar.component';
 import { GuestsReservationsComponent } from './guests-reservations/guests-reservations.component';
 import { GuestSearchAccommodationComponent } from './guest-search-accommodation/guest-search-accommodation.component';
 import { AccommodationDetailsComponent } from './accommodation-details/accommodation-details.component';
+import { ProfileHostComponent } from './profile-host/profile-host.component';
+import { ProfileGuestComponent } from './profile-guest/profile-guest.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,8 @@ import { AccommodationDetailsComponent } from './accommodation-details/accommoda
     GuestsReservationsComponent,
     GuestSearchAccommodationComponent,
     AccommodationDetailsComponent,
+    ProfileHostComponent,
+    ProfileGuestComponent,
   ],
   imports: [
     BrowserModule,
