@@ -31,6 +31,7 @@ import { AccommodationDetailsComponent } from './accommodation-details/accommoda
 import { ProfileHostComponent } from './profile-host/profile-host.component';
 import { ProfileGuestComponent } from './profile-guest/profile-guest.component';
 import { RateAccommodationComponent } from './rate-accommodation/rate-accommodation.component';
+import { StarRatingModule } from 'angular-star-rating';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { RateAccommodationComponent } from './rate-accommodation/rate-accommodat
     MatListModule,
     MatIconModule,
     MatButtonModule,
+    StarRatingModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

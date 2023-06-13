@@ -1,2 +1,9 @@
 <app-guest-sidebar></app-guest-sidebar>
-<p>rate-accommodation works!</p>
+<div>
+  <h1 class="h1"><b class="title">Rate accommodation</b></h1>
+</div>
+<!-- <star-rating [(rating)]="starRating" [readOnly]="false"></star-rating> -->
+<div class="star-rating">
+  <span class="star" [class.active]="i < starRating" *ngFor="let star of stars; let i = index" (click)="rate(i + 1)">&#9733;</span>
+</div>
+<button class="book-button" (click)="submitRating()">Submit</button>
