@@ -30,6 +30,7 @@ import { GuestSearchAccommodationComponent } from './guest-search-accommodation/
 import { AccommodationDetailsComponent } from './accommodation-details/accommodation-details.component';
 import { ProfileHostComponent } from './profile-host/profile-host.component';
 import { ProfileGuestComponent } from './profile-guest/profile-guest.component';
+import { RateAccommodationComponent } from './rate-accommodation/rate-accommodation.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { ProfileGuestComponent } from './profile-guest/profile-guest.component';
     AccommodationDetailsComponent,
     ProfileHostComponent,
     ProfileGuestComponent,
+    RateAccommodationComponent,
   ],
   imports: [
     BrowserModule,

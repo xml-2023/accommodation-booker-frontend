@@ -66,9 +66,12 @@
              <span class="text-actual">
                 {{accommodation.unitPrice}}e
             </span> -->
-            <!-- <span class="text-actual mint">
-                <button class="book-button" (click)="viewAvailability(accommodation.id)">View availability</button>
-            </span> -->
+            <span class="text-actual mint">
+                <button class="book-button" (click)="rateAccommodation(reservation.accommodationName)" *ngIf="reservation.status === 'ACCEPTED'">Rate accommodation</button>
+            </span>
+            <span class="text-actual mint">
+                <button class="book-button" *ngIf="reservation.status === 'ACCEPTED'">Rate host</button>
+            </span>
             </div>
             <div class="text-right">
             <!-- <span class="text-hline">

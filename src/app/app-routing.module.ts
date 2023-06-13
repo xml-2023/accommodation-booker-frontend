@@ -18,6 +18,7 @@ import { RoleGuardService } from './service/role-guard.service';
 import { AccommodationDetailsComponent } from './accommodation-details/accommodation-details.component';
 import { ProfileHostComponent } from './profile-host/profile-host.component';
 import { ProfileGuestComponent } from './profile-guest/profile-guest.component';
+import { RateAccommodationComponent } from './rate-accommodation/rate-accommodation.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -85,6 +86,12 @@ const routes: Routes = [
   {
     path: 'guests-reservations',
     component: GuestsReservationsComponent,
+    canActivate: [RoleGuardService],
+    data: { expectedRole: 'Guest' },
+  },
+  {
+    path: 'rate-accommodation/:accommodationName',
+    component: RateAccommodationComponent,
     canActivate: [RoleGuardService],
     data: { expectedRole: 'Guest' },
   },

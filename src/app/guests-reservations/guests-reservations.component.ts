@@ -3,6 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import { GuestReservationResponse } from '../model/guest-reservation-response.model';
 import { ReservationRequestService } from '../service/reservation-request.service';
 import { AccountService } from '../service/account.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-guests-reservations',
@@ -12,7 +13,7 @@ import { AccountService } from '../service/account.service';
 export class GuestsReservationsComponent implements OnInit {
 
   public userReservations : GuestReservationResponse[] = []
-  constructor(private reservationService : ReservationRequestService, private toastr : ToastrService, private accountService : AccountService) { }
+  constructor(private reservationService : ReservationRequestService, private toastr : ToastrService, private accountService : AccountService, private route: ActivatedRoute,  private router : Router) { }
 
   ngOnInit(): void {
     this.reservationService.getAllRequestsByUser(this.accountService.currentUser.id).subscribe( res => {
@@ -29,5 +30,9 @@ export class GuestsReservationsComponent implements OnInit {
         this.toastr.error('Error', err)
       }
     })
+  }
+
+  rateAccommodation(accommodationName : string) : void{
+    this.router.navigate(['rate-accommodation', accommodationName]);
   }
 }
