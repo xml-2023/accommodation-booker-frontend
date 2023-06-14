@@ -32,6 +32,7 @@ import { ProfileHostComponent } from './profile-host/profile-host.component';
 import { ProfileGuestComponent } from './profile-guest/profile-guest.component';
 import { RateAccommodationComponent } from './rate-accommodation/rate-accommodation.component';
 import { StarRatingModule } from 'angular-star-rating';
+import { RateHostComponent } from './rate-host/rate-host.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { StarRatingModule } from 'angular-star-rating';
     ProfileHostComponent,
     ProfileGuestComponent,
     RateAccommodationComponent,
+    RateHostComponent,
   ],
   imports: [
     BrowserModule,

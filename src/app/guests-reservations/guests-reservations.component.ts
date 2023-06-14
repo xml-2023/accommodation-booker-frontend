@@ -35,4 +35,8 @@ export class GuestsReservationsComponent implements OnInit {
   rateAccommodation(accommodationName : string) : void{
     this.router.navigate(['rate-accommodation', accommodationName]);
   }
+
+  rateHost(accommodationName : string) : void{
+    this.router.navigate(['rate-host', accommodationName]);
+  }
 }
