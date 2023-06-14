@@ -46,11 +46,11 @@ export class RatingService {
   }
 
   deleteAccommodationGrade(accommodationGradeId: any): Observable<any> {
-    return this.http.delete<any>(this.apiHost + 'rating', {params: new HttpParams().set('id', accommodationGradeId)});
+    return this.http.delete<any>(this.apiHost + 'rating/' + accommodationGradeId);
   }
 
   deleteHostGrade(hostGradeId: any): Observable<any> {
-    return this.http.delete<any>(this.apiHost + 'rating/hostGrade', {params: new HttpParams().set('id', hostGradeId)});
+    return this.http.delete<any>(this.apiHost + 'rating/hostGrade/' + hostGradeId);
   }
 
 }
