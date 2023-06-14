@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RatingService } from '../service/rating.service';
 import { AccountService } from '../service/account.service';
 import { AccommodationService } from '../service/accommodation.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -14,7 +14,7 @@ export class GuestAccommodationRatingsComponent implements OnInit {
   public accommodationRatings : any
   public accommodation: any
   public hasFoundAccommodationGrades : any
-  constructor(private ratingService : RatingService, private accountService : AccountService, private accommodationService : AccommodationService, private toastr : ToastrService, private route: ActivatedRoute) { }
+  constructor(private ratingService : RatingService, private accountService : AccountService, private accommodationService : AccommodationService, private toastr : ToastrService, private route: ActivatedRoute,  private router : Router) { }
 
   ngOnInit(): void {
     this.ratingService.findAccommodationRatingsByGuestId(this.accountService.currentUser.id).subscribe(res => {
@@ -38,6 +38,10 @@ export class GuestAccommodationRatingsComponent implements OnInit {
         this.toastr.error('Error occured', error);
       }
     })
+  }
+
+  editGrade(id : string) : void{
+    this.router.navigate(['edit-accommodation-rating', id]);
   }
 
 }

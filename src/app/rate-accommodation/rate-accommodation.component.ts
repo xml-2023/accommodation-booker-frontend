@@ -21,7 +21,7 @@ export class RateAccommodationComponent implements OnInit {
   public accommodationGrade : CreateAccommodationRating = new CreateAccommodationRating;
   public currentDate : string | null = ''
   
-  constructor(private accommodationService : AccommodationService, private accountService : AccountService, private ratingService : RatingService, private toastr : ToastrService, private route: ActivatedRoute,  private router : Router) { 
+  constructor(private accommodationService : AccommodationService, private accountService : AccountService, private ratingService : RatingService, private toastr : ToastrService, private route: ActivatedRoute) { 
     this.stars = [1, 2, 3, 4, 5];
     const today = new Date();
     this.currentDate = this.formatDate(today);

@@ -22,6 +22,8 @@ import { RateAccommodationComponent } from './rate-accommodation/rate-accommodat
 import { RateHostComponent } from './rate-host/rate-host.component';
 import { GuestHostRatingsComponent } from './guest-host-ratings/guest-host-ratings.component';
 import { GuestAccommodationRatingsComponent } from './guest-accommodation-ratings/guest-accommodation-ratings.component';
+import { EditHostRatingComponent } from './edit-host-rating/edit-host-rating.component';
+import { EditAccommodationRatingComponent } from './edit-accommodation-rating/edit-accommodation-rating.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -113,6 +115,18 @@ const routes: Routes = [
   {
     path: 'guest-accommodation-ratings',
     component: GuestAccommodationRatingsComponent,
+    canActivate: [RoleGuardService],
+    data: { expectedRole: 'Guest' },
+  },
+  {
+    path: 'edit-host-rating/:hostGradeId',
+    component: EditHostRatingComponent,
+    canActivate: [RoleGuardService],
+    data: { expectedRole: 'Guest' },
+  },
+  {
+    path: 'edit-accommodation-rating/:accommodationGradeId',
+    component: EditAccommodationRatingComponent,
     canActivate: [RoleGuardService],
     data: { expectedRole: 'Guest' },
   },

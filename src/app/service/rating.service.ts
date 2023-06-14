@@ -37,6 +37,14 @@ export class RatingService {
     return this.http.get<any>(this.apiHost + 'rating/findByAccommodationId', {params: new HttpParams().set('id', accommodationId)})
   }
 
+  findAccommodationRatingsById(ratingId: number) : Observable<any>{
+    return this.http.get<any>(this.apiHost + 'rating/findById', {params: new HttpParams().set('id', ratingId)})
+  }
+
+  findHostRatingsById(ratingId: number) : Observable<any>{
+    return this.http.get<any>(this.apiHost + 'rating/hostGrade/findById', {params: new HttpParams().set('id', ratingId)})
+  }
+
   editAccommodationGrade(updateAccommodationGradeRequest: any): Observable<any> {
     return this.http.put<any>(this.apiHost + 'rating', updateAccommodationGradeRequest, {headers: this.headers});
   }
