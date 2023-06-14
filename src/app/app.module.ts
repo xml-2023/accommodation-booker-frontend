@@ -33,6 +33,8 @@ import { ProfileGuestComponent } from './profile-guest/profile-guest.component';
 import { RateAccommodationComponent } from './rate-accommodation/rate-accommodation.component';
 import { StarRatingModule } from 'angular-star-rating';
 import { RateHostComponent } from './rate-host/rate-host.component';
+import { GuestHostRatingsComponent } from './guest-host-ratings/guest-host-ratings.component';
+import { GuestAccommodationRatingsComponent } from './guest-accommodation-ratings/guest-accommodation-ratings.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,8 @@ import { RateHostComponent } from './rate-host/rate-host.component';
     ProfileGuestComponent,
     RateAccommodationComponent,
     RateHostComponent,
+    GuestHostRatingsComponent,
+    GuestAccommodationRatingsComponent,
   ],
   imports: [
     BrowserModule,
