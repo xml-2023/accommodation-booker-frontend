@@ -1,0 +1,39 @@
+<app-guest-sidebar></app-guest-sidebar>
+<div>
+    <h1 class="h1"><b class="title">Edit accommodation rating</b></h1>
+</div>
+<div class="flight-list-card">
+    <div class="flight-card">
+        <div class="flight-card--header">
+        <div class="flight-card--header-details">
+            <div class="details-passenger">
+            <!-- <span class="detail--title">
+                Host:
+            </span>
+            <span class="detail-text">
+               {{accommodation.user.name}} {{accommodation.user.surname}}
+            </span> -->
+            <span class="detail--price">
+                My new rating
+            </span>
+            <!-- <span class="detail--text">
+            </span> -->
+            </div>
+        </div>
+        </div>
+        <div class="flight-card--details">
+        
+            <div class="star-rating">
+                <span class="star" [class.active]="i < starRating" *ngFor="let star of stars; let i = index" (click)="rate(i + 1)">&#9733;</span>
+            </div>
+        
+        <div class="flight-card-details--text">
+            <div class="text-right">
+            <span class="text-actual mint">
+                <button class="book-button" (click)="submitRating()">Rate</button>
+            </span>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

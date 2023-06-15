@@ -18,6 +18,12 @@ import { RoleGuardService } from './service/role-guard.service';
 import { AccommodationDetailsComponent } from './accommodation-details/accommodation-details.component';
 import { ProfileHostComponent } from './profile-host/profile-host.component';
 import { ProfileGuestComponent } from './profile-guest/profile-guest.component';
+import { RateAccommodationComponent } from './rate-accommodation/rate-accommodation.component';
+import { RateHostComponent } from './rate-host/rate-host.component';
+import { GuestHostRatingsComponent } from './guest-host-ratings/guest-host-ratings.component';
+import { GuestAccommodationRatingsComponent } from './guest-accommodation-ratings/guest-accommodation-ratings.component';
+import { EditHostRatingComponent } from './edit-host-rating/edit-host-rating.component';
+import { EditAccommodationRatingComponent } from './edit-accommodation-rating/edit-accommodation-rating.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -85,6 +91,42 @@ const routes: Routes = [
   {
     path: 'guests-reservations',
     component: GuestsReservationsComponent,
+    canActivate: [RoleGuardService],
+    data: { expectedRole: 'Guest' },
+  },
+  {
+    path: 'rate-accommodation/:accommodationName',
+    component: RateAccommodationComponent,
+    canActivate: [RoleGuardService],
+    data: { expectedRole: 'Guest' },
+  },
+  {
+    path: 'rate-host/:accommodationName',
+    component: RateHostComponent,
+    canActivate: [RoleGuardService],
+    data: { expectedRole: 'Guest' },
+  },
+  {
+    path: 'guest-host-ratings',
+    component: GuestHostRatingsComponent,
+    canActivate: [RoleGuardService],
+    data: { expectedRole: 'Guest' },
+  },
+  {
+    path: 'guest-accommodation-ratings',
+    component: GuestAccommodationRatingsComponent,
+    canActivate: [RoleGuardService],
+    data: { expectedRole: 'Guest' },
+  },
+  {
+    path: 'edit-host-rating/:hostGradeId',
+    component: EditHostRatingComponent,
+    canActivate: [RoleGuardService],
+    data: { expectedRole: 'Guest' },
+  },
+  {
+    path: 'edit-accommodation-rating/:accommodationGradeId',
+    component: EditAccommodationRatingComponent,
     canActivate: [RoleGuardService],
     data: { expectedRole: 'Guest' },
   },

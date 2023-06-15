@@ -19,9 +19,6 @@
     /* font-family: 'Roboto', sans-serif; */
   }
   
-  /* img {
-    max-width: 100%;  
-  } */
   
   .flight-card {
     width: 500px;
@@ -41,35 +38,6 @@
     border-bottom: 7px solid #6DBE47;
     position: relative;
   }
-  
-  /* .flight-card--header:before {
-    content: '';
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    background: #fff;
-    border-radius: 50px;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%) translateX(-50%);
-  }
-  
-  .flight-card--header:after {
-    content: '';
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    background: #fff;
-    border-radius: 50px;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%) translateX(50%);
-  } */
-  
-  /* .flight-card--header-logo {
-    width: 122px;
-    margin: 0 0 20px 0;
-  } */
   
   .flight-card--header-details {
     width: 100%;
@@ -307,4 +275,18 @@
   
   .reservation-button:hover{
     cursor: pointer;
+  }
+
+  .star-rating {
+    color: gold;
+    cursor: pointer;
+  }
+  
+  .star {
+    font-size: 60px;
+    justify-content: auto;
+  }
+  
+  .star.active {
+    color: orange;
   }

@@ -30,6 +30,13 @@ import { GuestSearchAccommodationComponent } from './guest-search-accommodation/
 import { AccommodationDetailsComponent } from './accommodation-details/accommodation-details.component';
 import { ProfileHostComponent } from './profile-host/profile-host.component';
 import { ProfileGuestComponent } from './profile-guest/profile-guest.component';
+import { RateAccommodationComponent } from './rate-accommodation/rate-accommodation.component';
+import { StarRatingModule } from 'angular-star-rating';
+import { RateHostComponent } from './rate-host/rate-host.component';
+import { GuestHostRatingsComponent } from './guest-host-ratings/guest-host-ratings.component';
+import { GuestAccommodationRatingsComponent } from './guest-accommodation-ratings/guest-accommodation-ratings.component';
+import { EditHostRatingComponent } from './edit-host-rating/edit-host-rating.component';
+import { EditAccommodationRatingComponent } from './edit-accommodation-rating/edit-accommodation-rating.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +59,12 @@ import { ProfileGuestComponent } from './profile-guest/profile-guest.component';
     AccommodationDetailsComponent,
     ProfileHostComponent,
     ProfileGuestComponent,
+    RateAccommodationComponent,
+    RateHostComponent,
+    GuestHostRatingsComponent,
+    GuestAccommodationRatingsComponent,
+    EditHostRatingComponent,
+    EditAccommodationRatingComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +82,7 @@ import { ProfileGuestComponent } from './profile-guest/profile-guest.component';
     MatListModule,
     MatIconModule,
     MatButtonModule,
+    StarRatingModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

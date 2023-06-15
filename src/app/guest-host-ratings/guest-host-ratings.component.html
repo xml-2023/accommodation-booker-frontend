@@ -1,0 +1,54 @@
+<app-guest-sidebar></app-guest-sidebar>
+<div class="not-found" *ngIf="hasFoundHostGrades == true">
+    <b>No ratings were found!</b> 
+ </div>
+<div class="flight-list-card">
+    <div class="flight-card" *ngFor="let hostRating of hostRatings">
+        <div class="flight-card--header">
+        <div class="flight-card--header-details">
+            <div class="details-passenger">
+            <span class="detail--title">
+                Host
+            </span>
+            <span class="detail--price">
+                {{hostRating.gradeReceiver.name}} {{hostRating.gradeReceiver.surname}}
+            </span>
+            </div>
+            <div class="details-depart">
+            <span class="detail--title">
+                Rating date
+            </span>
+            <span class="detail--text">
+                {{hostRating.ratingDate | date}}
+            </span>
+            </div>
+        </div>
+        </div>
+        <div class="flight-card--details">
+        <div class="bc-from">
+        </div>
+        <div class="bc-to">
+            
+        </div>
+        <div class="flight-card-details--text">
+            <div class="text-left">
+            <span class="text-hline">
+                Rating
+            </span>
+            <span class="text-actual">
+                {{hostRating.value}}
+            </span>
+            </div>
+            <div class="text-right">
+            <span class="text-actual mint">
+                <button class="reservation-button" (click)="editGrade(hostRating.id)">Edit</button>
+            </span>
+            <span class="text-actual mint">
+                <button class="book-button" (click)="deleteGrade(hostRating.id)">Delete</button>
+            </span>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+  
