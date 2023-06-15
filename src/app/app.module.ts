@@ -37,6 +37,8 @@ import { GuestHostRatingsComponent } from './guest-host-ratings/guest-host-ratin
 import { GuestAccommodationRatingsComponent } from './guest-accommodation-ratings/guest-accommodation-ratings.component';
 import { EditHostRatingComponent } from './edit-host-rating/edit-host-rating.component';
 import { EditAccommodationRatingComponent } from './edit-accommodation-rating/edit-accommodation-rating.component';
+import { AllRatingsForHostComponent } from './all-ratings-for-host/all-ratings-for-host.component';
+import { AllRatingsForAccommodationComponent } from './all-ratings-for-accommodation/all-ratings-for-accommodation.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +67,8 @@ import { EditAccommodationRatingComponent } from './edit-accommodation-rating/ed
     GuestAccommodationRatingsComponent,
     EditHostRatingComponent,
     EditAccommodationRatingComponent,
+    AllRatingsForHostComponent,
+    AllRatingsForAccommodationComponent,
   ],
   imports: [
     BrowserModule,

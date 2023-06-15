@@ -61,4 +61,12 @@ export class RatingService {
     return this.http.delete<any>(this.apiHost + 'rating/hostGrade/' + hostGradeId);
   }
 
+  getHostAverageGrade(hostId : any): Observable<any> {
+    return this.http.get<any>(this.apiHost + 'rating/hostGrade/averageGrade/'+ hostId);
+  }
+
+  getAccommodationAverageGrade(accommodationId : any): Observable<any> {
+    return this.http.get<any>(this.apiHost + 'rating/averageGrade/'+ accommodationId);
+  }
+
 }

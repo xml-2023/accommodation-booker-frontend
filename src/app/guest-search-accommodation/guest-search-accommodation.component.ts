@@ -85,4 +85,12 @@ export class GuestSearchAccommodationComponent implements OnInit {
   goToDetails(name : any) : void {
     this.router.navigate(['accommodation-details', name]);
   }
+
+  goToAccommodationRatings(accommodationId : any) : void {
+    this.router.navigate(['all-accommodation-ratings', accommodationId]);
+  }
+
+  goToHostRatings(hostId : any) : void {
+    this.router.navigate(['all-host-ratings', hostId]);
+  }
 }

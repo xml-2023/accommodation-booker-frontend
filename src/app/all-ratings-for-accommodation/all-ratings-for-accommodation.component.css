@@ -1,3 +1,24 @@
+.h1{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.title{
+  font-size: 65px;
+}
+
+html, * {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* font-family: 'Roboto', sans-serif; */
+}
+
 .card{
     max-width: 1020px;
     margin: 0 auto;
@@ -168,7 +189,7 @@ body {
 
 .flight-card {
   width: 500px;
-  height: 600px;
+  height: 450px;
   border-radius: 35px;
   margin: 1.5rem;
   overflow: hidden;
@@ -417,7 +438,7 @@ body {
   cursor: pointer;
 }
 
-.rating-button{
+.reservation-button{
   color: #fff;
   font-weight: 600;
   font-size: 0.875rem;
@@ -430,7 +451,7 @@ body {
   min-width: 100px;
 }
 
-.rating-button:hover{
+.reservation-button:hover{
   cursor: pointer;
 }
 
