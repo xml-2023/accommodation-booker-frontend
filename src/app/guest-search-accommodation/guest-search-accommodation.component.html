@@ -59,7 +59,17 @@
             <span class="detail-city">
                 {{accommodation.city}}, {{accommodation.country}}
             </span>
+            
         </div>
+        <span class="text-actual mint">
+            <button class="rating-button" (click)="goToAccommodationRatings(accommodation.id)">See ratings for this accommodation</button>
+        </span>
+        <span class="text-actual mint">
+            <!--  KATA KOMENTAR -->
+            <!-- Treba dobaviti odnekud id host-a od ovog accommodationa i proslediti to u goToHostRatings-->
+            <!--  -->
+            <button class="rating-button" (click)="goToHostRatings(accommodation.host.id)">See ratings for this host</button>
+        </span>
         <!-- <div class="bc-plane">
             <img src="https://cdn.onlinewebfonts.com/svg/img_537856.svg" />
         </div> -->
@@ -88,7 +98,7 @@
                 Reserve an accommmodation
             </span> -->
             <span class="text-actual mint">
-                <button class="book-button" (click)="goToDetails(accommodation.name)">Details</button>
+                <button class="book-button" (click)="goToDetails(accommodation.name)">Images</button>
             </span>
             <span class="text-actual mint">
                 <button class="book-button" (click)="makeReservation(accommodation.id)">Reserve</button>

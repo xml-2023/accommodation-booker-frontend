@@ -1,17 +1,23 @@
 <app-guest-sidebar></app-guest-sidebar>
-<div class="not-found" *ngIf="hasFoundHostGrades == true">
+<div>
+    <!-- Lepse prikazati ovo sranje -->
+    <span class="detail--price">
+    AVERAGE GRADE: {{averageGrade}}
+    </span>
+</div>
+<div class="not-found" *ngIf="hasFoundAccommodationGrades == true">
     <b>No ratings were found!</b> 
- </div>
+</div>
 <div class="flight-list-card">
-    <div class="flight-card" *ngFor="let hostRating of hostRatings">
+    <div class="flight-card" *ngFor="let accommodationRating of accommodationRatings">
         <div class="flight-card--header">
         <div class="flight-card--header-details">
             <div class="details-passenger">
             <span class="detail--title">
-                Host
+                Accommodation
             </span>
             <span class="detail--price">
-                {{hostRating.gradeReceiver.name}} {{hostRating.gradeReceiver.surname}}
+                {{accommodationRating.accommodation.name}}
             </span>
             </div>
             <div class="details-depart">
@@ -19,23 +25,21 @@
                 Rating date
             </span>
             <span class="detail--text">
-                {{hostRating.ratingDate | date}}
+                {{accommodationRating.ratingDate | date}}
             </span>
             </div>
         </div>
         </div>
         <div class="flight-card--details">
         <div class="bc-from">
-            
         </div>
         <div class="bc-to">
-            <div class="text-actual mint">
-                <button class="book-button">See ratings for this accommodation</button>
-              </div>
-              <br>
-              <div class="text-actual mint">
-                <button class="book-button">See ratings for this host</button>
-              </div>
+            <span class="text-hline">
+                Rater
+            </span>
+            <span class="text-actual">
+                {{accommodationRating.gradeGiver.name}} {{accommodationRating.gradeGiver.surname}}
+            </span>
         </div>
         <div class="flight-card-details--text">
             <div class="text-left">
@@ -43,16 +47,11 @@
                 Rating
             </span>
             <span class="text-actual">
-                {{hostRating.value}}
+                {{accommodationRating.value}}
             </span>
             </div>
             <div class="text-right">
-            <span class="text-actual mint">
-                <button class="reservation-button" (click)="editGrade(hostRating.id)">Edit</button>
-            </span>
-            <span class="text-actual mint">
-                <button class="book-button" (click)="deleteGrade(hostRating.id)">Delete</button>
-            </span>
+            
             </div>
         </div>
         </div>
