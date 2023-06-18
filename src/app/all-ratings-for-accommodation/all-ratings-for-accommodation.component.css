@@ -3,6 +3,13 @@
   margin-top: 20px;
 }
 
+.average-grade{
+  padding: 2rem;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+}
+
 .title{
   font-size: 65px;
 }

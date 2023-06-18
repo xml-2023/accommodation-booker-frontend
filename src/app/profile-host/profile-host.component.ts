@@ -17,8 +17,14 @@ export class ProfileHostComponent implements OnInit {
   ) {}
 
   public createAccount: CreateAccount = new CreateAccount();
+  public isDistinguishedHost : boolean = false
 
   ngOnInit(): void {
+    this.accountService.getDistinguishedHostStatus(this.accountService.currentUser.id).subscribe(res => {
+      this.isDistinguishedHost = res
+      console.log(this.isDistinguishedHost);
+    })
+
     this.accountService
       .findHostById(this.accountService.currentUser.id)
       .subscribe((res) => {

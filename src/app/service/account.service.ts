@@ -20,6 +20,11 @@ export class AccountService {
 
   constructor(private http: HttpClient) {}
 
+  getDistinguishedHostStatus(id : any) : Observable<any>{
+    return this.http.get<any>(this.apiHost + 'account/distinguishedHost/' + id, {
+      headers : this.headers})
+  }
+
   createHostAccount(account: CreateAccount): Observable<any> {
     return this.http.post<any>(this.apiHost + 'account/host', account, {
       headers: this.headers,

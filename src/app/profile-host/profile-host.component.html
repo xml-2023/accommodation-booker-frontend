@@ -1,6 +1,7 @@
 <app-host-sidebar></app-host-sidebar>
 <div class="container">
   <h2>Profile info</h2>
+    <h4 *ngIf="isDistinguishedHost === true">You are distinguished host!</h4>
   <form class="form" (submit)="editProfile()">
     <div class="form-parts">
       <div class="left-part">
